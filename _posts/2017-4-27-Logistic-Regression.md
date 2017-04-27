@@ -16,7 +16,17 @@ Nhiềm vụ của ta là xây dựng một mô hình phân loại để ước 
 Trong tập dữ liệu huấn luyện, ta có:
 **a.** Cột đầu tiên của dữ liệu X đại diện cho điểm bài thi thứ 1 và cột thứ 2 đại diện cho điểm bài thi thứ 2.
 **b.** Vector Y sử dụng '1' là lable cho sinh viên đậu và '0' là lable cho sinh viên rớt.
-## Tìm lời Giải bài toán
+## Biểu diễn dữ liệu
+
 Tập dữ liệu được biểu diễn như sau
 
 ![Data](/MLDL/assets/img/LRData.png)
+
+Với điểm màu đỏ là đậu và màu xanh là rới.
+
+## Tìm lời giải.
+
+Ta gọi \\( D = {(x^{(1)},y^{(1)}),(x^{(2)},y^{(2)}),...,(x^{(n)},y^{(n)})}, \forall x^{(i)} \in \mathbb{R}^d , y^{(i)} \in \{0,1\} \\) là tập dữ liệu đề cho.
+Mục tiêu của ta là cho dữ liệu của một sinh viên bất kỳ, dự đoán sinh viên đó đậu hay rớt.
+\\(  x^{(i)} \Rightarrow  \^{h}^{(i)} \\)
+
