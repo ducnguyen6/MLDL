@@ -33,10 +33,10 @@ defaults:
 paginate: 20
 
 #### Site
-title : Jekyll Jacman
+title : MLDL
 tagline: A fresh looking and responsive theme for Jekyll
-assets: /assets
-baseurl: "/MLDL"
+# assets: /assets
+baseurl: '/MLDL'
 
 #### Language
 language: en    ## blog site languages: en, zh-CN, zh-TW
