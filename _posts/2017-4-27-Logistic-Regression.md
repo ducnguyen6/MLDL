@@ -38,9 +38,13 @@ là tập dữ liệu đề cho.
 Mục tiêu của ta là cho dữ liệu của một sinh viên bất kỳ, dự đoán sinh viên đó đậu hay rớt.
 $$  x^{(i)} \Rightarrow  \hat{h}^{(i)} $$
 
-Đặt $ Y^{(i)} là giá trị của $ y^{(i)} $ với đầu vào là $ x^{(i)} $
+Đặt \\( Y^{(i)} \\) là giá trị của \\( y^{(i)} \\) với đầu vào là \\( x^{(i)} \\)
 
-$$ Y^{(i)} \sim Bernouli(p,n) $$
+$$
+Y^{(i)} \sim Bernouli(p,n)
+$$
 
- Trong đó:
- $$ p = P_{(y=1|x,w)} $$
+ Với:
+ $$
+ p = P_{(y=1|x,w)} = \sigma_{(w^Tx)}          
+ $$
