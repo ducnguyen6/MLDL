@@ -37,8 +37,20 @@ title : Duc's Blog
 tagline: Have a nice day!
 assets: /MLDL/assets
 baseurl: '/MLDL'
+
+# Build settings
 markdown: kramdown
 use_math: true
+permalink: pretty
+future: true
+highlighter: rouge
+linenos: true
+kramdown:
+  input: GFM
+  auto_ids: true
+  syntax_highlighter: rouge
+
+
 #### Language
 language: en    ## blog site languages: en, zh-CN, zh-TW
 

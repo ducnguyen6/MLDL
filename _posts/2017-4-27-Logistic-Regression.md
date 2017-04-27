@@ -31,22 +31,16 @@ Mục tiêu của ta là cho dữ liệu của một sinh viên bất kỳ, dự
 \\(  x^{(i)} \Rightarrow  \^{h}^{(i)} \\)
 
 -------------------------
-huhuhu
+Nguyen Tan Duc
 -------------------------
 
 \lim_{x\to\infty}
-
-\[ \lim_{x\to\infty} \]
-
-\\[ \lim_{x\to\infty} \\]
 
 \( \lim_{x\to\infty} \)
 
 \\( \lim_{x\to\infty} \\)
 
 $$\lim_{x\to\infty}$$
-
-$$\sum_{i=1}^n X_i$$
 
 
 
