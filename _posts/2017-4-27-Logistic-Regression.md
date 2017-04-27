@@ -28,9 +28,7 @@ Với điểm màu đỏ là đậu và màu xanh là rới.
 
 ### Hàm sigmoid
 $$
-\begin{align}
 \sigma_{(t)} = \frac{1}{1+e^{-t}}
-\end{align}
 $$
 
 
