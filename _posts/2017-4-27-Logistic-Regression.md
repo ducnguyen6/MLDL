@@ -28,21 +28,9 @@ Với điểm màu đỏ là đậu và màu xanh là rới.
 
 Ta gọi \\( D = {(x^{(1)},y^{(1)}),(x^{(2)},y^{(2)}),...,(x^{(n)},y^{(n)})}, \forall x^{(i)} \in \mathbb{R}^d , y^{(i)} \in \{0,1\} \\) là tập dữ liệu đề cho.
 Mục tiêu của ta là cho dữ liệu của một sinh viên bất kỳ, dự đoán sinh viên đó đậu hay rớt.
-\\(  x^{(i)} \Rightarrow  \^{h}^{(i)} \\)
+\\(  x^{(i)} \Rightarrow  \hat{h}^{(i)} \\)
 
----
 
-Duc Nguyen
-
----
-
-\lim_{x\to\infty}
-
-\( \lim_{x\to\infty} \)
-
-\\( \lim_{x\to\infty} \\)
-
-$$\lim_{x\to\infty}$$
 
 
 
