@@ -36,10 +36,10 @@ paginate: 20
 title : Jekyll Jacman
 tagline: A fresh looking and responsive theme for Jekyll
 assets: /assets
-baseurl: 
+baseurl: "/MLDL"
 
 #### Language
-language: zh-CN    ## blog site languages: en, zh-CN, zh-TW
+language: en    ## blog site languages: en, zh-CN, zh-TW
 
 #### Menu
 menu:
