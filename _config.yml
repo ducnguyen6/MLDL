@@ -37,7 +37,7 @@ title : Duc's Blog
 tagline: Have a nice day!
 assets: /MLDL/assets
 baseurl: '/MLDL'
-
+use_math: true
 #### Language
 language: en    ## blog site languages: en, zh-CN, zh-TW
 
