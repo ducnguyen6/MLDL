@@ -35,7 +35,7 @@ paginate: 20
 #### Site
 title : MLDL
 tagline: A fresh looking and responsive theme for Jekyll
-# assets: /assets
+assets: /MLDL/assets
 baseurl: '/MLDL'
 
 #### Language
