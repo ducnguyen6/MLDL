@@ -30,9 +30,11 @@ Ta gọi \\( D = {(x^{(1)},y^{(1)}),(x^{(2)},y^{(2)}),...,(x^{(n)},y^{(n)})}, \f
 Mục tiêu của ta là cho dữ liệu của một sinh viên bất kỳ, dự đoán sinh viên đó đậu hay rớt.
 \\(  x^{(i)} \Rightarrow  \^{h}^{(i)} \\)
 
--------------------------
-Nguyen Tan Duc
--------------------------
+---
+
+Duc Nguyen
+
+---
 
 \lim_{x\to\infty}
 
