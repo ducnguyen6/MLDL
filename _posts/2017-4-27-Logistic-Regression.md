@@ -148,11 +148,9 @@ Ta thay vào để tính đạo hàm \\( J_{(w)} \\) ta được:
 
 \\[ \frac{ \partial J_{(w)} }{ \partial w_j } = - \sum_{j=1}^{n}( y^{(i)} x _ {j} ^ {(i)} (1 - \alpha _ {j} ^ {(i)} ) - ( 1 - y^{(i)} ) x _ {j} ^ {(i)} \alpha _ {j} ^ {(i)}  ) \\]
 
-\\[ = - \sum _{j=1} ^{n} ( y^{(i)} x _ j ^ {(i)} - y^{(i)} x _ j ^{(i)} \alpha ^{(i)} _ j - x _ j ^{(i)} \alpha^{(i)} _ j  + y^{(i)} x _ j ^ {(i)} \alpha ^{(i)} _ j  ) \\]
-\\[ = - \sum _ {j=1} ^ {n}( y^{(i)} x _ j ^{(i)}  - x _ j ^{(i)} \alpha^{(i)} _ j ) =  \sum_{j=1}^{n} x _ j ^{(i)}( \alpha^{(i)} _ j - y^{(i)}  ) \\]
+\\[ = - \sum _{j=1} ^{n} ( y^{(i)} x _ {j} ^ {(i)} - y^{(i)} x _ {j} ^{(i)} \alpha ^{(i)} _ {j} - x _ {j} ^{(i)} \alpha^{(i)} _ {j}  + y^{(i)} x _ {j} ^ {(i)} \alpha ^{(i)} _ {j}  ) \\]
+\\[ = - \sum _ {j=1} ^ {n}( y^{(i)} x _ {j} ^{(i)}  - x _ {j} ^{(i)} \alpha^{(i)} _ {j} ) =  \sum_{j=1}^{n} x _ {j} ^{(i)}( \alpha^{(i)} _ {j} - y^{(i)}  ) \\]
+
 Một cách tổng quát cho hàm nhiều biến:    
-debug   
-\\[  x ^ {(i)} _ j = x \\]  
-\\[  \frac{ \partial J_{(w)} }{ \partial w_j } \\]
-end debug   
+
 <!--    \\[  \\]  \\(  \\)   -->
