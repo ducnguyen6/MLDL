@@ -13,7 +13,7 @@ Ta sử dụng bài toán    [ex4](http://openclassroom.stanford.edu/MainFolder/
 
 Bài toán đưọc mô tả như sau:   
 Cho tập dữ liệu [ ex4Data.zip ](http://openclassroom.stanford.edu/MainFolder/courses/MachineLearning/exercises/ex4materials/ex4Data.zip)
-chứa dữ liệu của 40 sinh viên đậu và 40 sinh viên rớt đại học. Mỗi mẫu \\( (x^{(i)}, y^{(i)}) \\)  chứa điểm số của 2 bài kiểm tra và kết quả thi của một sinh 1 viên.  
+chứa dữ liệu của 40 sinh viên đậu và 40 sinh viên rớt đại học. Mỗi mẫu \( (x^{(i)}, y^{(i)}) \)  chứa điểm số của 2 bài kiểm tra và kết quả thi của một sinh 1 viên.  
 Nhiệm vụ của ta là xây dựng một mô hình phân loại để ước lượng cơ hội đậu hay rớt của một sinh viên thông qua điểm của 2 bài kiểm tra.   
 
 
@@ -33,7 +33,7 @@ Với điểm màu đỏ biểu diễn cho sinh viên là đậu và màu xanh l
 ## Tìm lời giải.
 
 ### Hàm sigmoid
-\\( \sigma_{(t)} = \frac{1}{1+e^{-t}} \\)
+\[ \sigma_{(t)} = \frac{1}{1+e^{-t}} \]
 
 Hàm này có đồ thị như sau:  
 
@@ -46,7 +46,7 @@ Hàm này có đồ thị như sau:
 ### Tìm hàm mất mát
 
 Ta gọi   
-\\( D = {(x^{(1)},y^{(1)}),(x^{(2)},y^{(2)}),...,(x^{(n)},y^{(n)})}, \forall x^{(i)} \in \mathbb{R}^d , y^{(i)} \in \{0,1\} \\)
+\\( D = {(x^{(1)},y^{(1)}),(x^{(2)},y^{(2)}),...,(x^{(n)},y^{(n)})}, \forall x^{(i)} \in \mathbb{R}^d , y^{(i)} \in \{0,1\} \\)   
 là tập dữ liệu đề cho.   
 
 Mục tiêu của ta là cho dữ liệu của một sinh viên bất kỳ, dự đoán sinh viên đó đậu hay rớt.   
@@ -62,9 +62,9 @@ Mục tiêu của ta là cho dữ liệu của một sinh viên bất kỳ, dự
 với \\( w = [w_0, w_1, ..., w_n]^T \\) là tham số cần ước lượng.   
 và \\( x = [1, x_1, ..., x_n] \\)   
 
-Để thuận tiền trong việc viết, ta đặt \\( \alpha^{(i)} = \sigma (w^Tx^{(i)}) \\)   
+Để thuận tiện trong việc viết, ta đặt \\( \alpha^{(i)} = \sigma (w^Tx^{(i)}) \\)   
 
-\\(  q = P_{(y=0|x^{(i)},w)} = 10 \alpha^{(i)} \\)   
+ \[ q = P_{(y=0|x^{(i)},w)} = 10 \alpha^{(i)} \]   
 
 Từ (1) và (2) ta suy ra:   
 \\( P_{(y^{(i)}|x^{(i)},w)} = (\alpha^{(i)})^{y^{(i)}}(1-\alpha^{(i)})^{1-y^{(i)}} \\)   
@@ -85,19 +85,19 @@ Gradient Descent là một phương pháp tối ưu sử dụng phổ  biến tr
 Xét khảo sát một hàm số như hình vẽ   
 
 ![LRGD](/MLDL/assets/img/LRGD.png)   
-gọi \\(x*\\) là điểm cực trị cần tìm của hàm \\(f_{(x)})  
+gọi \\( x\* \\) là điểm cực trị cần tìm của hàm \\(f_{(x)})  
 Nếu đạo hàm của hàm số tại \\(x_t: f'_ {x_t} >0 \\)
-thì \\(x_t\\) nằm về phía phải so với \\(x*\\).   
-Vậy muốn đến được \\(x*\\) ta cần di chuyển \\(x_t\\) về phía trái.
+thì \\(x_t\\) nằm về phía phải so với \\(x\*\\).   
+Vậy muốn đến được \\(x\*\\) ta cần di chuyển \\(x_t\\) về phía trái.
 
 Và ngược lại, nếu đạo hàm của hàm số tại \\(x_t: f'_ {x_t} < 0 \\)
-thì \\(x_t\\) nằm về phía trái so với \\(x*\\).   
-Vậy muốn đến được \\(x*\\) ta cần di chuyển \\(x_t\\) về phía phải.   
+thì \\(x_t\\) nằm về phía trái so với \\(x\*\\).   
+Vậy muốn đến được \\(x\*\\) ta cần di chuyển \\(x_t\\) về phía phải.   
 
 Một cách tổng quát, ta cần cộng cho \\(x_t\\) một lượng \\( \delta \\)ngược dấu với đạo hàm:   
 \\( x_{t+1} = x_t + \delta \\)   
 
-Nếu \\(x_t\\) càng xa \\(x*\\) thì f'_ {x_t} càng lớn nến lượng \\( \delta \\) sẽ tỉ lệ với đạo hàm.   
+Nếu \\(x_t\\) càng xa \\(x\*\\) thì f'_ {x_t} càng lớn nến lượng \\( \delta \\) sẽ tỉ lệ với đạo hàm.   
 Từ đó ta suy ra được:   
 \\( x_{t+1} = x_t - \alpha f'_ {x_t} \\).   
 với \\( \alpha > 0 \\) gọi là learning rate.   
