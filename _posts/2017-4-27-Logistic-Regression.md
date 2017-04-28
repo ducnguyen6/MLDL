@@ -145,10 +145,14 @@ Ta cần phải tính đạo hàm bật nhất và bật 2 của hàm mất mát
 \\[ log(1-\alpha ^{(i)}) = log \frac{e^{-w^Tx^{(i)}}}{1+e^{-w^Tx^{(i)}}} = -w^Tx^{(i)} - log(1+e^{-w^Tx^{(i)}}) \\]
 \\[ \frac{\partial log(1-\alpha ^{(i)}) }{\partial w_i} = - x_i + x_i(1-\alpha^{(i)}) = -\alpha^{(i)}x_i \\]
 Ta thay vào để tính đạo hàm \\( J_{(w)} \\) ta được:  
-\\[ \frac{ \partial J_{(w)}}{ \partial w_j } = - \sum_{j=1}^{n}( y^{(i)}x_j^{(i)}(1-\alpha^{(i)}_j ) - ( 1 - y^{(i)} ) x_j^{(i)} \alpha^{(i)}_j  ) \\]
+
+\\[ \frac{ \partial J_{(w)} }{ \partial w_j } = - \sum_{j=1}^{n}( y^{(i)} x_{j}^{(i)} (1 - \alpha_{j}^{(i)} ) - ( 1 - y^{(i)} ) x_{j}^{(i)} \alpha_{j}^{(i)}  ) \\]
+
 \\[ = - \sum_{j=1}^{n} ( y^{(i)} x_j^{(i)} - y^{(i)} x_j^{(i)}\alpha^{(i)}_j - x_j^{(i)}\alpha^{(i)}_j  + y^{(i)} x_j^{(i)}\alpha^{(i)}_j  ) \\]
 \\[ = - \sum_{j=1}^{n}( y^{(i)} x_j^{(i)}  - x_j^{(i)}\alpha^{(i)}_j ) =  \sum_{j=1}^{n} x_j^{(i)}( \alpha^{(i)}_j - y^{(i)}  ) \\]
 Một cách tổng quát cho hàm nhiều biến:    
-
-
+debug   
+\\[  x_{j}^{(i)} \\]
+\\[  \frac{ \partial J_{(w)} }{ \partial w_j } \\]
+end debug   
 <!--    \\[  \\]  \\(  \\)   -->
