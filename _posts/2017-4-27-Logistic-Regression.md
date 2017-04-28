@@ -10,10 +10,9 @@ description: Trong phần này mình sẽ trình bày về Logistic Regression v
 ## Giới thiệu về bài toán
 Ta sử dụng bài toán    [ex4](http://openclassroom.stanford.edu/MainFolder/DocumentPage.php?course=MachineLearning&doc=exercises/ex4/ex4.html) trong khóa học Machine Learning của Andrew Ng.  
 
-
 Bài toán đưọc mô tả như sau:   
 Cho tập dữ liệu [ ex4Data.zip ](http://openclassroom.stanford.edu/MainFolder/courses/MachineLearning/exercises/ex4materials/ex4Data.zip)
-chứa dữ liệu của 40 sinh viên đậu và 40 sinh viên rớt đại học. Mỗi mẫu \( (x^{(i)}, y^{(i)}) \)  chứa điểm số của 2 bài kiểm tra và kết quả thi của một sinh 1 viên.  
+chứa dữ liệu của 40 sinh viên đậu và 40 sinh viên rớt đại học. Mỗi mẫu \\((x^{(i)}, y^{(i)})\\)  chứa điểm số của 2 bài kiểm tra và kết quả thi của một sinh 1 viên.  
 Nhiệm vụ của ta là xây dựng một mô hình phân loại để ước lượng cơ hội đậu hay rớt của một sinh viên thông qua điểm của 2 bài kiểm tra.   
 
 
@@ -33,7 +32,7 @@ Với điểm màu đỏ biểu diễn cho sinh viên là đậu và màu xanh l
 ## Tìm lời giải.
 
 ### Hàm sigmoid
-\[ \sigma_{(t)} = \frac{1}{1+e^{-t}} \]
+\\[ \sigma_{(t)} = \frac{1}{1+e^{-t}} \\]
 
 Hàm này có đồ thị như sau:  
 
@@ -64,7 +63,7 @@ và \\( x = [1, x_1, ..., x_n] \\)
 
 Để thuận tiện trong việc viết, ta đặt \\( \alpha^{(i)} = \sigma (w^Tx^{(i)}) \\)   
 
- \[ q = P_{(y=0|x^{(i)},w)} = 10 \alpha^{(i)} \]   
+ \\[ q = P_{(y=0|x^{(i)},w)} = 10 \alpha^{(i)} \\]   
 
 Từ (1) và (2) ta suy ra:   
 \\( P_{(y^{(i)}|x^{(i)},w)} = (\alpha^{(i)})^{y^{(i)}}(1-\alpha^{(i)})^{1-y^{(i)}} \\)   
