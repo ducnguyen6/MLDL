@@ -46,34 +46,24 @@ Hàm này có đồ thị như sau:
 
 Ta gọi   
 \\( D = {(x^{(1)},y^{(1)}),(x^{(2)},y^{(2)}),...,(x^{(n)},y^{(n)})}, \forall x^{(i)} \in \mathbb{R}^d , y^{(i)} \in \{0,1\} \\)   
-là tập dữ liệu đề cho.   
-
+là tập dữ liệu đề cho.  
 Mục tiêu của ta là cho dữ liệu của một sinh viên bất kỳ, dự đoán sinh viên đó đậu hay rớt.   
 \\[  x^{(i)} \Rightarrow  \hat{h}^{(i)} \\]
-
-Đặt \\( Y^{(i)} \\) là giá trị của \\( y^{(i)} \\) với đầu vào là \\( x^{(i)} \\)  
-
-\\[ Y^{(i)} \sim Bernouli(p,n) \\]   
-
+Đặt \\( Y^{(i)} \\) là giá trị của \\( y^{(i)} \\) với đầu vào là \\( x^{(i)} \\)
+\\[ Y^{(i)} \sim Bernouli(p,n) \\]
  Với:
-\\[  p = P_{(y=1|x,w)} = \sigma_{(w^Tx)}  \\]   
-
-với \\( w = [w_0, w_1, ..., w_n]^T \\) là tham số cần ước lượng.   
-và \\( x = [1, x_1, ..., x_n] \\)   
-
-Để thuận tiện trong việc viết, ta đặt \\( \alpha^{(i)} = \sigma (w^Tx^{(i)}) \\)   
-
- \\[ q = P_{(y=0|x^{(i)},w)} = 1 - p = 1 - \alpha^{(i)} \\]   
-
-Từ (1) và (2) ta suy ra:   
-\\[ P_{(y^{(i)}|x^{(i)},w)} = (\alpha^{(i)})^{y^{(i)}}(1-\alpha^{(i)})^{1-y^{(i)}} \\]   
-
-Xét trên toàn bộ tập dữ liệu D   
-\\[ P(Y|W) = \prod{i=1}{n}(\alpha^{(i)})^{y^{(i)}}(1-\alpha^{(i)})^{1-y^{(i)}}   \\]   
-
-Tìm mô hình phù hợp để  \\(P\\) lớn nhất.   
-Áp dụng negative Maximize log likelihood.   
- \\[ L = -log(P_{(Y|w)})  \\]   
+\\[  p = P_{(y=1|x,w)} = \sigma_{(w^Tx)}  \\]
+với \\( w = [w_0, w_1, ..., w_n]^T \\) là tham số cần ước lượng.
+và \\( x = [1, x_1, ..., x_n] \\)
+Để thuận tiện trong việc viết, ta đặt \\( \alpha^{(i)} = \sigma (w^Tx^{(i)}) \\)
+ \\[ q = P_{(y=0|x^{(i)},w)} = 1 - p = 1 - \alpha^{(i)} \\]
+Từ (1) và (2) ta suy ra:
+\\[ P_{(y^{(i)}|x^{(i)},w)} = (\alpha^{(i)})^{y^{(i)}}(1-\alpha^{(i)})^{1-y^{(i)}} \\]
+Xét trên toàn bộ tập dữ liệu D
+\\[ P(Y|W) = \prod{i=1}{n}(\alpha^{(i)})^{y^{(i)}}(1-\alpha^{(i)})^{1-y^{(i)}}   \\]
+Tìm mô hình phù hợp để  \\(P\\) lớn nhất.
+Áp dụng negative Maximize log likelihood.
+ \\[ L = -log(P_{(Y|w)})  \\]
 Vì \\[ P_{(Y|w)} \in (0,1) \Rightarrow -log(P_{(Y|w)}) > 0 \\]   
 Lúc này ta được \\( L \\) làm một hàm lồi (convex function) nên ta có thể  áp dụng các bài phương pháp tối    ưu lồi (convex optimization) để giải quyết bài toán này.   
 
@@ -111,13 +101,9 @@ với \\( \nabla_X f_(X_t) \\) là gradient của \\(f\\) theo biến \\(X\\)
 
 Xuất phát từ định lý taylor:   
 \\[ f_{(x)} = f_{(x_0)} + f'_ {x_0}.(x-x_0) \\]   
-Tìm x để \\( f_{(x) = 0 } \\)
-\\( \Leftrightarrow \\)
-Tìm x để \\( f_{(x_0)} + f'_ {x_0}.(x-x_0)  \\)   
-
-\\( \Rightarrow  x = x_0 - \frac{f_{(x_0)}}{f'_ {(x_0)}} \\)   
-đặt \\( f = g' \\) thì nghiệm của phương trình \\( g'_ {x} = 0\\) là:   
-
-\\(x_{t+1} = x_t \\)   
-Tổng quá hóa cho hàm nhiều biến:   
-\\(X_{t+1} = X_t \\)
+Tìm x để \\[ f_{(x)} = 0 \\] \\[ \Leftrightarrow  f_{(x_0)} + f'_ {x_0}.(x-x_0) = 0 \\]
+\\[ \Rightarrow  x = x_0 - \frac{f_{(x_0)}}{f'_ {(x_0)}} \\]
+Đặt \\( f = g' \\) thì nghiệm của phương trình \\( g'_ {x} = 0\\) là:
+\\[ x_{t+1} = x_t - \frac{g' _ {(x_0)}}{g''_ {(x_0)}}\\]
+Tổng quá hóa cho hàm nhiều biến:
+\\[X_{t+1} = X_t -  \mathbb{H}^{-1}_x \nabla_x f_{(x_0)}\\]
