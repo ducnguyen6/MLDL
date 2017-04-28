@@ -118,7 +118,7 @@ Xuất phát từ định lý taylor:
 Tìm x để \\[ f_{(x)} = 0 \\] \\[ \Leftrightarrow  f_{(x_0)} + f'_ {x_0}.(x-x_0) = 0 \\]
 \\[ \Rightarrow  x = x_0 - \frac{f_{(x_0)}}{f'_ {(x_0)}} \\]
 Đặt \\( f = g' \\) thì nghiệm của phương trình \\( g'_ {x} = 0\\) là:
-\\[ x_{t+1} = x_t - \frac{g' _ {(x_0)}}{g''_ {(x_0)}}\\]
+\\[ x_{t+1} = x_t - \frac{g' _ {(x_0)}}{g'' _ {(x_0)}}\\]
 Tổng quá hóa cho hàm nhiều biến:
 \\[ X_{t+1} = X_t - \mathbb{H}^{-1} \nabla _ {x} f_{(X_t)}\\]
 Với \\( H \\) là ma trận Hessian.
