@@ -152,7 +152,7 @@ Ta thay vào để tính đạo hàm \\( J_{(w)} \\) ta được:
 \\[ = - \sum_{j=1}^{n}( y^{(i)} x_j^{(i)}  - x_j^{(i)}\alpha^{(i)}_j ) =  \sum_{j=1}^{n} x_j^{(i)}( \alpha^{(i)}_j - y^{(i)}  ) \\]
 Một cách tổng quát cho hàm nhiều biến:    
 debug   
-\\[  x_{j}^{(i)} \\]
+\\[  x ^ {(i)} _ j \\]
 \\[  \frac{ \partial J_{(w)} }{ \partial w_j } \\]
 end debug   
 <!--    \\[  \\]  \\(  \\)   -->
