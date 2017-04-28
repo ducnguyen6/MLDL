@@ -106,6 +106,7 @@ Tìm x để \\[ f_{(x)} = 0 \\] \\[ \Leftrightarrow  f_{(x_0)} + f'_ {x_0}.(x-x
 \\[ \Rightarrow  x = x_0 - \frac{f_{(x_0)}}{f'_ {(x_0)}} \\]
 Đặt \\( f = g' \\) thì nghiệm của phương trình \\( g'_ {x} = 0\\) là:
 \\[ x_{t+1} = x_t - \frac{g' _ {(x_0)}}{g''_ {(x_0)}}\\]
-Tổng quá hóa cho hàm nhiều biến: \\[ X_{t+1} = X_t -  \mathbb{H}^{-1}_x \nabla_x f_{(x_0)} \\]
+Tổng quá hóa cho hàm nhiều biến:
+\\[ X_{t+1} = X_t - \mathbb{H}^{-1} _ {x} \nabla _ {x} f_{(x_0)}\\]
 
 Ví dụ:
