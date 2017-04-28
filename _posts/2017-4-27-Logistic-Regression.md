@@ -4,7 +4,7 @@ title: Logistic Regression
 tags:
 - Regression
 - Logistic
-categories: Basic Machine Learning
+categories: BasicMachineLearning
 description: Trong phần này mình sẽ trình bày về Logistic Regression và giải vài bài toán phân loại cơ bản.
 ---
 ## Giới thiệu về bài toán
@@ -60,11 +60,10 @@ và \\( x = [1, x_1, ..., x_n] \\)
 Từ (1) và (2) ta suy ra:
 \\[ P_{(y^{(i)}|x^{(i)},w)} = (\alpha^{(i)})^{y^{(i)}}(1-\alpha^{(i)})^{1-y^{(i)}} \\]
 Xét trên toàn bộ tập dữ liệu D
-\\[ P(Y|W) = \prod{i=1}{n}(\alpha^{(i)})^{y^{(i)}}(1-\alpha^{(i)})^{1-y^{(i)}}   \\]
+\\[ P(Y|W) = \prod_{i=1}^{n}(\alpha^{(i)})^{y^{(i)}}(1-\alpha^{(i)})^{1-y^{(i)}}   \\]
 Tìm mô hình phù hợp để  \\(P\\) lớn nhất.
-Áp dụng negative Maximize log likelihood.
- \\[ L = -log(P_{(Y|w)})  \\]
-Vì \\[ P_{(Y|w)} \in (0,1) \Rightarrow -log(P_{(Y|w)}) > 0 \\]   
+Áp dụng negative Maximize log likelihood.  \\[ L = -log(P_{(Y|w)})  \\]
+Vì \\( P_{(Y|w)} \in (0,1) \Rightarrow -log(P_{(Y|w)}) > 0 \\)  
 Lúc này ta được \\( L \\) làm một hàm lồi (convex function) nên ta có thể  áp dụng các bài phương pháp tối    ưu lồi (convex optimization) để giải quyết bài toán này.   
 
 ## Gradient Descent method
@@ -85,15 +84,17 @@ Một cách tổng quát, ta cần cộng cho \\(x_t\\) một lượng \\( \Delt
 \\[ x_{t+1} = x_t + \Delta \\]   
 
 Nếu \\(x_t\\) càng xa \\(x\*\\) thì f'_ {x_t} càng lớn nến lượng \\( \Delta \\) sẽ tỉ lệ với đạo hàm.   
-Từ đó ta suy ra được:
-\\[ x_{t+1} = x_t - \alpha f'_ {x_t} \\].
-Với \\( \alpha > 0 \\) gọi là learning rate.   
+Từ đó ta suy ra được: \\[ x_{t+1} = x_t - \alpha f'_ {x_t} \\]
+Với \\( \alpha > 0 \\) gọi là learning rate.
 
-Tổng quát với hàm nhiều biến ta có:   
+Tổng quát với hàm nhiều biến ta có:
 Với hàm \\( h_{(X)} = w_0 + x_1w_1 + ... + x_nw_n \\):
 \\[ X_{t+1} = X_t -\alpha \nabla_X f_(X_t)  \\]
 
-với \\( \nabla_X f_(X_t) \\) là gradient của \\(f\\) theo biến \\(X\\)   
+với \\( \nabla_X f_(X_t) \\) là gradient của \\(f\\) theo biến \\(X\\)
+
+Ví dụ:
+cho hàm số \\[f_{(x)} = \\]
 
 ## Newton's method
 
@@ -105,5 +106,6 @@ Tìm x để \\[ f_{(x)} = 0 \\] \\[ \Leftrightarrow  f_{(x_0)} + f'_ {x_0}.(x-x
 \\[ \Rightarrow  x = x_0 - \frac{f_{(x_0)}}{f'_ {(x_0)}} \\]
 Đặt \\( f = g' \\) thì nghiệm của phương trình \\( g'_ {x} = 0\\) là:
 \\[ x_{t+1} = x_t - \frac{g' _ {(x_0)}}{g''_ {(x_0)}}\\]
-Tổng quá hóa cho hàm nhiều biến:
-\\[X_{t+1} = X_t -  \mathbb{H}^{-1}_x \nabla_x f_{(x_0)}\\]
+Tổng quá hóa cho hàm nhiều biến: \\[ X_{t+1} = X_t -  \mathbb{H}^{-1}_x \nabla_x f_{(x_0)} \\]
+
+Ví dụ:
