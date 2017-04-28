@@ -49,78 +49,75 @@ Ta gọi
 là tập dữ liệu đề cho.   
 
 Mục tiêu của ta là cho dữ liệu của một sinh viên bất kỳ, dự đoán sinh viên đó đậu hay rớt.   
-\\(  x^{(i)} \Rightarrow  \hat{h}^{(i)} \\)
+\\[  x^{(i)} \Rightarrow  \hat{h}^{(i)} \\]
 
 Đặt \\( Y^{(i)} \\) là giá trị của \\( y^{(i)} \\) với đầu vào là \\( x^{(i)} \\)  
 
-\\( Y^{(i)} \sim Bernouli(p,n) \\)   
+\\[ Y^{(i)} \sim Bernouli(p,n) \\]   
 
- Với:   
-\\(  p = P_{(y=1|x,w)} = \sigma_{(w^Tx)}  \\)   
+ Với:
+\\[  p = P_{(y=1|x,w)} = \sigma_{(w^Tx)}  \\]   
 
 với \\( w = [w_0, w_1, ..., w_n]^T \\) là tham số cần ước lượng.   
 và \\( x = [1, x_1, ..., x_n] \\)   
 
 Để thuận tiện trong việc viết, ta đặt \\( \alpha^{(i)} = \sigma (w^Tx^{(i)}) \\)   
 
- \\[ q = P_{(y=0|x^{(i)},w)} = 10 \alpha^{(i)} \\]   
+ \\[ q = P_{(y=0|x^{(i)},w)} = 1 - p = 1 - \alpha^{(i)} \\]   
 
 Từ (1) và (2) ta suy ra:   
-\\( P_{(y^{(i)}|x^{(i)},w)} = (\alpha^{(i)})^{y^{(i)}}(1-\alpha^{(i)})^{1-y^{(i)}} \\)   
+\\[ P_{(y^{(i)}|x^{(i)},w)} = (\alpha^{(i)})^{y^{(i)}}(1-\alpha^{(i)})^{1-y^{(i)}} \\]   
 
 Xét trên toàn bộ tập dữ liệu D   
-\\( P(Y|W) = \prod{i=1}{n}(\alpha^{(i)})^{y^{(i)}}(1-\alpha^{(i)})^{1-y^{(i)}}   \\)   
+\\[ P(Y|W) = \prod{i=1}{n}(\alpha^{(i)})^{y^{(i)}}(1-\alpha^{(i)})^{1-y^{(i)}}   \\]   
 
 Tìm mô hình phù hợp để  \\(P\\) lớn nhất.   
 Áp dụng negative Maximize log likelihood.   
- \\( L = -log(P_{(Y|w)})  \\)   
-Vì \\( P_{(Y|w)} \in (0,1) \Rightarrow -log(P_{(Y|w)}) > 0 \\)   
+ \\[ L = -log(P_{(Y|w)})  \\]   
+Vì \\[ P_{(Y|w)} \in (0,1) \Rightarrow -log(P_{(Y|w)}) > 0 \\]   
 Lúc này ta được \\( L \\) làm một hàm lồi (convex function) nên ta có thể  áp dụng các bài phương pháp tối    ưu lồi (convex optimization) để giải quyết bài toán này.   
 
----
 ## Gradient Descent method
 
 Gradient Descent là một phương pháp tối ưu sử dụng phổ  biến trong bài toán tối ưu lồi.
 Xét khảo sát một hàm số như hình vẽ   
 
 ![LRGD](/MLDL/assets/img/LRGD.png)   
-gọi \\( x\* \\) là điểm cực trị cần tìm của hàm \\(f_{(x)})  
-Nếu đạo hàm của hàm số tại \\(x_t: f'_ {x_t} >0 \\)
+gọi \\( x\* \\) là điểm cực trị cần tìm của hàm \\(f_{(x)}\\)  
+Nếu đạo hàm của hàm số tại \\(x_t: f'_ {x_t} > 0 \\)
 thì \\(x_t\\) nằm về phía phải so với \\(x\*\\).   
 Vậy muốn đến được \\(x\*\\) ta cần di chuyển \\(x_t\\) về phía trái.
 
-Và ngược lại, nếu đạo hàm của hàm số tại \\(x_t: f'_ {x_t} < 0 \\)
-thì \\(x_t\\) nằm về phía trái so với \\(x\*\\).   
+Và ngược lại, nếu đạo hàm của hàm số tại \\(x_t: f'_ {x_t} < 0 \\) thì \\(x_t\\) nằm về phía trái so với \\(x\*\\).   
 Vậy muốn đến được \\(x\*\\) ta cần di chuyển \\(x_t\\) về phía phải.   
 
-Một cách tổng quát, ta cần cộng cho \\(x_t\\) một lượng \\( \delta \\)ngược dấu với đạo hàm:   
-\\( x_{t+1} = x_t + \delta \\)   
+Một cách tổng quát, ta cần cộng cho \\(x_t\\) một lượng \\( \Delta \\)ngược dấu với đạo hàm:
+\\[ x_{t+1} = x_t + \Delta \\]   
 
-Nếu \\(x_t\\) càng xa \\(x\*\\) thì f'_ {x_t} càng lớn nến lượng \\( \delta \\) sẽ tỉ lệ với đạo hàm.   
-Từ đó ta suy ra được:   
-\\( x_{t+1} = x_t - \alpha f'_ {x_t} \\).   
-với \\( \alpha > 0 \\) gọi là learning rate.   
+Nếu \\(x_t\\) càng xa \\(x\*\\) thì f'_ {x_t} càng lớn nến lượng \\( \Delta \\) sẽ tỉ lệ với đạo hàm.   
+Từ đó ta suy ra được:
+\\[ x_{t+1} = x_t - \alpha f'_ {x_t} \\].
+Với \\( \alpha > 0 \\) gọi là learning rate.   
 
 Tổng quát với hàm nhiều biến ta có:   
-Với hàm \\( h_{X} = w_0 + x_1w_1 + ... + x_nw_n \\):   
+Với hàm \\( h_{(X)} = w_0 + x_1w_1 + ... + x_nw_n \\):
+\\[ X_{t+1} = X_t -\alpha \nabla_X f_(X_t)  \\]
 
-\\( \X_{t+1} = X_t -\alpha \nabla_X f(X_t)  \\)   
-
-với \\( \nabla_X f(X_t) \\) là gradient của \\(f\\) theo biến \\(X\\)   
+với \\( \nabla_X f_(X_t) \\) là gradient của \\(f\\) theo biến \\(X\\)   
 
 ## Newton's method
 
-Để tiềm cực trị của hàm \\( g_{(x)} \\), ta cần tìm nghiệm của phương trình \\( g'_ {x} = 0\\).   
+Để tìm cực trị của hàm \\( g_{(x)} \\), ta cần tìm nghiệm của phương trình \\( g'_ {x} = 0\\).   
 
 Xuất phát từ định lý taylor:   
-\\( f_{(x)} = f_{(x_0)} + f'_ {x_0}.(x-x_0) \\)   
-Tìm x để \\( f_{(x) = 0 } \\)    
-\\( \Leftrightarrow \\)   
+\\[ f_{(x)} = f_{(x_0)} + f'_ {x_0}.(x-x_0) \\]   
+Tìm x để \\( f_{(x) = 0 } \\)
+\\( \Leftrightarrow \\)
 Tìm x để \\( f_{(x_0)} + f'_ {x_0}.(x-x_0)  \\)   
 
 \\( \Rightarrow  x = x_0 - \frac{f_{(x_0)}}{f'_ {(x_0)}} \\)   
 đặt \\( f = g' \\) thì nghiệm của phương trình \\( g'_ {x} = 0\\) là:   
 
-\\(x = \\)   
+\\(x_{t+1} = x_t \\)   
 Tổng quá hóa cho hàm nhiều biến:   
-\\(X = \\)
+\\(X_{t+1} = X_t \\)
