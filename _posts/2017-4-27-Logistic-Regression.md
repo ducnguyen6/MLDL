@@ -141,9 +141,9 @@ Ta có hàm mất mát:
 \\[ w_{t+1} = w_t - \mathbb{H}^{-1} \nabla _ {w} J_{(w_t)}\\]
 Ta cần phải tính đạo hàm bật nhất và bật 2 của hàm mất mát trước.
 \\[ log \alpha ^{(i)} = log \frac{1}{1+e^{-w^Tx^{(i)}}} = -log(1+e^{-w^Tx^{(i)}}) \\]
-\\[ \frac{\partial log \alpha ^{(i)}}{\partial w_i} = \frac{x^{(i)} e^{-w^Tx^{(i)}}}{1+e^{-w^Tx^{(i)}}} = x^{(i)} (1 - \alpha ^{(i)} ) \\]
+\\[ \frac{\partial log \alpha ^{(i)}}{\partial w_j} = \frac{x _ {j} ^ {(i)} e^{-w^Tx^{(i)}}}{1+e^{-w^Tx^{(i)}}} = x _ {j} ^{(i)} (1 - \alpha ^{(i)} ) \\]
 \\[ log(1-\alpha ^{(i)}) = log \frac{e^{-w^Tx^{(i)}}}{1+e^{-w^Tx^{(i)}}} = -w^Tx^{(i)} - log(1+e^{-w^Tx^{(i)}}) \\]
-\\[ \frac{\partial log(1-\alpha ^{(i)}) }{\partial w_i} = - x_i + x_i(1-\alpha^{(i)}) = -\alpha^{(i)}x_i \\]
+\\[ \frac{\partial log(1-\alpha ^{(i)}) }{\partial w_j} = - x _ {j} ^ {(i)} + x _ {j} ^ {(i)} (1-\alpha^{(i)}) = -\alpha^{(i)}x _ {j} ^ {(i)} \\]
 Ta thay vào để tính đạo hàm \\( J_{(w)} \\) ta được:  
 
 \\[ \frac{ \partial J_{(w)} }{ \partial w_j } = - \sum_{j=1}^{n}( y^{(i)} x _ {j} ^ {(i)} (1 - \alpha _ {j} ^ {(i)} ) - ( 1 - y^{(i)} ) x _ {j} ^ {(i)} \alpha _ {j} ^ {(i)}  ) \\]
@@ -152,7 +152,9 @@ Ta thay vào để tính đạo hàm \\( J_{(w)} \\) ta được:
 
 \\[ = - \sum _ {j=1} ^ {n}( y^{(i)} x _ {j} ^{(i)}  - x _ {j} ^{(i)} \alpha _ {j} ^{(i)}  ) =  \sum_{j=1}^{n} x _ {j} ^{(i)}( \alpha^{(i)} _ {j} - y^{(i)}  ) \\]
 
-Một cách tổng quát cho hàm nhiều biến:    
+Một cách tổng quát cho hàm nhiều biến:
+\\[ \nabla _ x J = A^T ( \alpha - Y ) \\]
+Với :
 
 
 
