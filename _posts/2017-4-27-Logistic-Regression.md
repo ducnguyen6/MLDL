@@ -43,6 +43,8 @@ Hàm này có đồ thị như sau:
 - Tồn đại đạo hàm tại mọi điểm.  
 - Phù hợp cho việc phân loại (có là 1, không là 0)  
 
+### Tìm hàm mất mát
+
 Ta gọi   
 \\( D = {(x^{(1)},y^{(1)}),(x^{(2)},y^{(2)}),...,(x^{(n)},y^{(n)})}, \forall x^{(i)} \in \mathbb{R}^d , y^{(i)} \in \{0,1\} \\)
 là tập dữ liệu đề cho.   
