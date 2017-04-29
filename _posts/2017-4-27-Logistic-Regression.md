@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Logistic Regression
+mathjax: true
 tags:
 - Regression
 - Logistic
@@ -154,10 +155,10 @@ Ta thay vào để tính đạo hàm \\( J_{(w)} \\) ta được:
 \\[ = - \sum _ {j=1} ^ {n}( y^{(i)} x _ {j} ^{(i)}  - x _ {j} ^{(i)} \alpha ^{(i)}  ) =  \sum_{j=1}^{n} x _ {j} ^{(i)}( \alpha^{(i)} - y^{(i)}  ) \\]
 -->
 
-\\[ \begin{eqnarray} \frac{ \partial J_{(w)} }{ \partial w_j } = - \sum_{j=1}^{n}( y^{(i)} x _ {j} ^ {(i)} (1 - \alpha ^ {(i)} ) - ( 1 - y^{(i)} ) x _ {j} ^ {(i)} \alpha ^ {(i)}  )  ~~(1) \\\
- = - \sum _ {j=1} ^ {n} ( y^{(i)} x _ {j} ^ {(i)} - y^{(i)} x _ {j} ^{(i)} \alpha ^{(i)}  - x _ {j} ^ {(i)} \alpha ^{(i)}  + y^{(i)} x _ {j} ^ {(i)} \alpha ^{(i)}  )  ~~(2) \\\
-  = - \sum _ {j=1} ^ {n}( y^{(i)} x _ {j} ^{(i)}  - x _ {j} ^{(i)} \alpha ^{(i)}  )  ~~(3) \\\
-  =  \sum_{j=1}^{n} x _ {j} ^{(i)}( \alpha^{(i)} - y^{(i)}  )  ~~(4) 
+\\[ \begin{eqnarray} \frac{ \partial J_{(w)} }{ \partial w_j } &=& - \sum_{j=1}^{n}( y^{(i)} x _ {j} ^ {(i)} (1 - \alpha ^ {(i)} ) - ( 1 - y^{(i)} ) x _ {j} ^ {(i)} \alpha ^ {(i)}  )  ~~(1) \\\
+ &=& - \sum _ {j=1} ^ {n} ( y^{(i)} x _ {j} ^ {(i)} - y^{(i)} x _ {j} ^{(i)} \alpha ^{(i)}  - x _ {j} ^ {(i)} \alpha ^{(i)}  + y^{(i)} x _ {j} ^ {(i)} \alpha ^{(i)}  )  ~~(2) \\\
+  &=& - \sum _ {j=1} ^ {n}( y^{(i)} x _ {j} ^{(i)}  - x _ {j} ^{(i)} \alpha ^{(i)}  )  ~~(3) \\\
+  &=&  \sum_{j=1}^{n} x _ {j} ^{(i)}( \alpha^{(i)} - y^{(i)}  )  ~~(4)
 \end{eqnarray}
   \\]
 
