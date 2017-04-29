@@ -166,7 +166,14 @@ Ta thay vào để tính đạo hàm \\( J_{(w)} \\) ta được:
 Một cách tổng quát cho hàm nhiều biến:
 \\[ \nabla _ x J = A^T ( \alpha - Y ) \\]
 Với :
-
-
+\\[
+A =
+\begin{matrix}
+    x_{1 1} & x_{1 2} & \dots & x_{1 d} \\\
+    x_{2 1} & x_{2 2} & \dots & x_{2 d} \\\
+    \vdots & \vdots & \ddots & \vdots \\\
+    x_{n 1} & x_{n 2} & \dots & x_{n d}
+\end{matrix}
+\\]
 
 <!--    \\[  \\]  \\(  \\)   -->
