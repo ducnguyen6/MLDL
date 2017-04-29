@@ -146,11 +146,21 @@ Ta cần phải tính đạo hàm bật nhất và bật 2 của hàm mất mát
 \\[ \frac{\partial log(1-\alpha ^{(i)}) }{\partial w_j} = - x _ {j} ^ {(i)} + x _ {j} ^ {(i)} (1-\alpha^{(i)}) = -\alpha^{(i)}x _ {j} ^ {(i)} \\]
 Ta thay vào để tính đạo hàm \\( J_{(w)} \\) ta được:  
 
+<!--
 \\[ \frac{ \partial J_{(w)} }{ \partial w_j } = - \sum_{j=1}^{n}( y^{(i)} x _ {j} ^ {(i)} (1 - \alpha ^ {(i)} ) - ( 1 - y^{(i)} ) x _ {j} ^ {(i)} \alpha ^ {(i)}  ) \\]
 
 \\[ = - \sum _ {j=1} ^ {n} ( y^{(i)} x _ {j} ^ {(i)} - y^{(i)} x _ {j} ^{(i)} \alpha ^{(i)}  - x _ {j} ^ {(i)} \alpha ^{(i)}  + y^{(i)} x _ {j} ^ {(i)} \alpha ^{(i)}  ) \\]
 
 \\[ = - \sum _ {j=1} ^ {n}( y^{(i)} x _ {j} ^{(i)}  - x _ {j} ^{(i)} \alpha ^{(i)}  ) =  \sum_{j=1}^{n} x _ {j} ^{(i)}( \alpha^{(i)} - y^{(i)}  ) \\]
+-->
+
+\\[ \begin{eqnarray} \frac{ \partial J_{(w)} }{ \partial w_j } = - \sum_{j=1}^{n}( y^{(i)} x _ {j} ^ {(i)} (1 - \alpha ^ {(i)} ) - ( 1 - y^{(i)} ) x _ {j} ^ {(i)} \alpha ^ {(i)}  )  ~~(1) \
+ = - \sum _ {j=1} ^ {n} ( y^{(i)} x _ {j} ^ {(i)} - y^{(i)} x _ {j} ^{(i)} \alpha ^{(i)}  - x _ {j} ^ {(i)} \alpha ^{(i)}  + y^{(i)} x _ {j} ^ {(i)} \alpha ^{(i)}  )  ~~(2) \
+  = - \sum _ {j=1} ^ {n}( y^{(i)} x _ {j} ^{(i)}  - x _ {j} ^{(i)} \alpha ^{(i)}  )  ~~(3) \
+  =  \sum_{j=1}^{n} x _ {j} ^{(i)}( \alpha^{(i)} - y^{(i)}  )  ~~(4) \
+\end{eqnarray}
+  \\]
+
 
 Một cách tổng quát cho hàm nhiều biến:
 \\[ \nabla _ x J = A^T ( \alpha - Y ) \\]
