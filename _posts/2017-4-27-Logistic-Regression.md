@@ -168,12 +168,14 @@ Một cách tổng quát cho hàm nhiều biến:
 Với :
 \\[
 A =
+\left\[
 \begin{matrix}
     x_{1 1} & x_{1 2} & \dots & x_{1 d} \\\
     x_{2 1} & x_{2 2} & \dots & x_{2 d} \\\
     \vdots & \vdots & \ddots & \vdots \\\
     x_{n 1} & x_{n 2} & \dots & x_{n d}
 \end{matrix}
+\right\]
 \\]
 
 <!--    \\[  \\]  \\(  \\)   -->
