@@ -187,13 +187,14 @@ Ta thế vào công thức đạo hàm bậc 2 được.
 
 \\[ \begin{eqnarray} \frac{\partial ^ 2 J(w)}{\partial w_j \partial w_k} &=& \sum _{i=1} ^{n} x ^{(i)} _j \left( \frac{\partial \alpha ^{(i)}}{\partial w_k} \right) \\\
 &=& \sum_{i=1} ^{n} x^{(i)} _{j} x ^{(i)} _{k} \alpha ^{(i)} (1 - \alpha ^{(i)}) \\\
-&=& \mathbb{Z} ^T _j \mathbb{B} \mathbb{Z} _k  
+&=& {Z} ^T _j {B} {Z} _k  
 \end{eqnarray}
 \\]
 với:
-\\[ \mathbb{Z}_j = (x ^{(1)} _ j , ..., x^{(n)} _j)^T  \\]
-\\[ \mathbb{Z}_k = (x ^{(1)} _ k , ..., x^{(n)} _k)^T \\]
-\\[ \mathbb{B} = \left\[  
+
+\\[ {Z}_j = (x ^{(1)} _ j , ..., x^{(n)} _j)^T  \\]
+\\[ {Z}_k = (x ^{(1)} _ k , ..., x^{(n)} _k)^T \\]
+\\[ {B} = \left\[  
 \begin{matrix}
     \alpha ^{(1)} (1- \alpha ^{(1)}) &   & 0 \\\
       & \ddots &    \\\
@@ -202,7 +203,7 @@ với:
  \right\]  \\]
 
 Tổng quát cho hàm nhiều biến, ta được:
-\\[ \mathbb{H}_w = \nabla ^ 2 _ w J(w) = \mathbb{A}^T \mathbb{B} \mathbb{A} \\]
+\\[ {H}_w = \nabla ^ 2 _ w J(w) = {A}^T {B} {A} \\]
 
 
 
