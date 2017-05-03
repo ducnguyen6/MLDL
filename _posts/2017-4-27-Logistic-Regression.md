@@ -338,9 +338,9 @@ end
 print(theta)
 ```
 Kết quả thu được như sau:  
-![LRPlot](/MLDL/assets/img/LRPlot.png)  
+![LRPlot](/MLDL/assets/img/LRPlotGD.png)  
 Đồ thị hàm mất mát:  
-![LRPlotLossNT](/MLDL/assets/img/LRPlotLossNT.png)  
+![LRPlotLossNT](/MLDL/assets/img/LRPlotLossGD.png)  
 Nếu lấy sinh viên có giá trị y >= 0.5 là đậu và < 0.5 là rớt thì kết quả là dự đoán là:  
 Sinh viên đậu: 95.0 %  
 Sinh viên rớt: 80.0 %  
