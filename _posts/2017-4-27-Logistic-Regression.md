@@ -185,7 +185,9 @@ Tính đạo hàm bậc 2 (Hessian):
 \\[ \Rightarrow \partial \alpha = \alpha x _ {j} (1 - \alpha  ) \\]
 Ta thế vào công thức đạo hàm bậc 2 được.
 
-\\[ \begin{eqnarray} \frac{\partial ^ 2 J(w)}{\partial w_j \partial w_k} &=& \sum _{i=1} ^{n} x ^{(i)} _j \left( \frac{\partial \alpha ^{(i)}}{\partial w_k} \right) 
+\\[ \begin{eqnarray} \frac{\partial ^ 2 J(w)}{\partial w_j \partial w_k} &=& \sum _{i=1} ^{n} x ^{(i)} _j \left( \frac{\partial \alpha ^{(i)}}{\partial w_k} \right) \\\
+ &=& \sum_{i=1} ^{n} x^{(i)} _{j} x ^{(i)} _{k} \alpha ^{(i)} (1 - \alpha ^{(i)}) \\\
+ &=& {Z} ^T _j {B} {Z} _k  
 \end{eqnarray}
 \\]
 với:
