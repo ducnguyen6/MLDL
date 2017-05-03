@@ -115,8 +115,8 @@ Từ đó ta thấy việc chọn \\(\alpha\\) và \\(x_0\\) khác nhau sẽ ả
 Để tìm cực trị của hàm \\( g{(x)} \\), ta cần tìm nghiệm của phương trình \\( g'_ {x} = 0\\).   
 
 Xuất phát từ định lý taylor:   
-\\[ f{(x)} = f{(x_0)} + f' {x_0}.(x-x_0) \\]   
-Tìm x để \\[ f{(x)} = 0 \\] \\[ \Leftrightarrow  f{(x_0)} + f' {x_0}.(x-x_0) = 0 \\]
+\\[ f{(x)} = f{(x_0)} + f' {(x_0)}.(x-x_0) \\]   
+Tìm x để \\[ f{(x)} = 0 \\] \\[ \Leftrightarrow  f{(x_0)} + f' {(x_0)}.(x-x_0) = 0 \\]
 \\[ \Rightarrow  x = x_0 - \frac{f{(x_0)}}{f' {(x_0)}} \\]
 Đặt \\( f = g' \\) thì nghiệm của phương trình \\( g' {x} = 0\\) là:
 \\[ x_{t+1} = x_t - \frac{g'  {(x_0)}}{g''  {(x_0)}}\\]
@@ -130,7 +130,7 @@ với điểm ban đầu là \\(x_0 = 3\\) ta được:
 \\[ f' {(x)} = 2x - 2 \\]
 \\[ f''  {(x)} = 2 \\]
 \\[ x_1 = x_0 - \frac{f'}{f''} = x_0 - \frac{2x_0-2}{2} = 1 \\]
-Vậy với hàm bật 2 một biến thì chỉ sau 1 lần lặp ta đã tìm được giá trị cực trị.
+Vậy với hàm bậc 2 một biến thì chỉ sau 1 lần lặp ta đã tìm được giá trị cực trị.
 
 ## Giải bài toán
 
@@ -140,7 +140,7 @@ Ta có hàm mất mát:
 \\[ J{(w)} = -\sum_{i=1}^{n}(y^{(i)} log(\alpha^{(i)}) + (1-\alpha^{(i)})log(1-\alpha^{(i)})) \\]
 Áp dụng công thức Newton:
 \\[ w_{t+1} = w_t - \mathbb{H}^{-1} \nabla _ {w} J{(w_t)}\\]
-Ta cần phải tính đạo hàm bật nhất và bật 2 của hàm mất mát trước.
+Ta cần phải tính đạo hàm bậc nhất và bậc 2 của hàm mất mát trước.
 \\[ log \alpha ^{(i)} = log \frac{1}{1+e^{-w^Tx^{(i)}}} = -log(1+e^{-w^Tx^{(i)}}) \\]
 \\[ \frac{\partial log \alpha ^{(i)}}{\partial w_j} = \frac{x _ {j} ^ {(i)} e^{-w^Tx^{(i)}}}{1+e^{-w^Tx^{(i)}}} = x _ {j} ^{(i)} (1 - \alpha ^{(i)} ) \\]
 \\[ log(1-\alpha ^{(i)}) = log \frac{e^{-w^Tx^{(i)}}}{1+e^{-w^Tx^{(i)}}} = -w^Tx^{(i)} - log(1+e^{-w^Tx^{(i)}}) \\]
@@ -178,4 +178,34 @@ A =
 \right\]
 \\]
 
+Tính đạo hàm bậc 2 (Hessian):  
+
+\\[ \partial log \alpha = \frac{\partial \alpha}{\alpha} \\]
+\\[ \Rightarrow \partial \alpha = \alpha \partial log \alpha \\]
+\\[ \Rightarrow \partial \alpha = \alpha x _ {j} (1 - \alpha  ) \\]
+Ta thế vào công thức đạo hàm bậc 2 được.
+
+\\[ \begin{eqnarray} \frac{\partial ^ 2 J(w)}{\partial w_j \partial w_k} &=& \sum_{i=1}^{n} x ^{(i)} _j \left( \frac{\partial \alpha ^{(i)}}{\partial w_k} \right) \\\
+&=& \sum_{i=1}^{n} x^{(i)} _{j} x^{(i)} _{k} \alpha ^{(i)} (1 - \alpha ^{(i)}) \\\
+&=& \mathbb{Z} ^T _j \mathbb{B} \mathbb{Z} _k  
+\end{eqnarray}
+\\]
+với:
+\\[ \mathbb{Z}_j = (x ^{(1)} _ j , ..., x^{(n)} _j)^T  \\]
+\\[ \mathbb{Z}_k = (x ^{(1)} _ k , ..., x^{(n)} _k)^T \\]
+\\[ \mathbb{B} = \left\[  
+\begin{matrix}
+    \alpha ^{(1)} (1- \alpha ^{(1)}) &   & 0 \\\
+      & \ddots &    \\\
+    0 &   & \alpha ^{(1)} (1- \alpha ^{(1)})
+\end{matrix}
+ \right\]  \\]
+
+Tổng quát cho hàm nhiều biến, ta được:
+\\[ \mathbb{w} = \nabla ^ 2 _ w J(w) = \mathbb{A}^T \mathbb{B} \mathbb{A} \\]
+
+
+
+
 <!--    \\[  \\]  \\(  \\)   -->
+<!--                         -->
