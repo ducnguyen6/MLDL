@@ -306,6 +306,7 @@ Trung bình: 82.5 %
 
 Với tập dữ liệu để huấn luyện (training set) là khá nhỏ (40 sinh viên) thì 82.5% là kết quả chấm nhận được.
 
+Code, Notebook và data có thể tải tại [đây.](https://github.com/dukn/MachineLearning)
 
 ## Tài liệu tham khảo  
 
