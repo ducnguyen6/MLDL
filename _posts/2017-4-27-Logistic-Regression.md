@@ -60,10 +60,10 @@ và \\( x = [1, x_1, ..., x_n] \\)
  \\[ q = P{(y=0|x^{(i)},w)} = 1 - p = 1 - \alpha^{(i)} \\]
 Từ đó ta suy ra:
 \\[ P{(y^{(i)}|x^{(i)},w)} = (\alpha^{(i)})^{y^{(i)}}(1-\alpha^{(i)})^{1-y^{(i)}} \\]
-Tức là khi \\( y^{(i)} = 1 \\) vế phải còn lại \\( \alpha^{(i)}) \\) và khi \\( y^{(i)} = 0 \\) vế phải còn lại \\( 1 - \alpha^{(i)}) \\). Ta muốn mô hình này tốt nhât tức là xác suất này phải lớn nhất.  
+Tức là khi \\( y^{(i)} = 1 \\) vế phải còn lại \\( \alpha^{(i)} \\) và khi \\( y^{(i)} = 0 \\) vế phải còn lại \\( 1 - \alpha^{(i)} \\). Ta muốn mô hình này tốt nhât (Sát giá trị với thực tế nhất) tức là xác suất này phải lớn nhất.  
 Xét trên toàn bộ tập dữ liệu D. Ta có thể viết lại likelihood của parameters là:
-\\[ \begin{eqnarray} L(W) &=& P( \vec{y} | X,W )
-&=& \prod_{i=1}^{n} P{(y^{(i)}|x^{(i)},w)}
+\\[ \begin{eqnarray} L(W) &=& P( \vec{y} | X,W ) \\\
+&=& \prod_{i=1}^{n} P{(y^{(i)}|x^{(i)},w)} \\\
 &=& \prod_{i=1}^{n}(\alpha^{(i)})^{y^{(i)}}(1-\alpha^{(i)})^{1-y^{(i)}}   
 \end{eqnarray}
 \\]
@@ -71,7 +71,7 @@ Mục tiêu của ta là maximize giá trị \\( L(w) \\) trên.
 ### negative log likelihood.
 Với hàm số trên, việc tối ưu là rất khó vì khi số \\(n\\) lớn thì
 giá trị của \\(P{(y^{(i)}|x^{(i)},w)}\\) sẽ rât nhỏ.
-Ta sẽ lầy logarit cơ số e của \\( L(w) }\\). Sau đó lấy ngược dấu để  được một hàm số mới có giá trị lớn hơn và là một hàm lồi (convex function). Lúc này bài toán ta trở thành tìm giá trị nhỏ nhất của hàm mất mát (hàm này thường được gọi là *negative log likelihood* ).
+Ta sẽ lầy logarit cơ số e của \\( L(w) \\). Sau đó lấy ngược dấu để  được một hàm số mới có giá trị lớn hơn và là một hàm lồi (convex function). Lúc này bài toán ta trở thành tìm giá trị nhỏ nhất của hàm mất mát (hàm này thường được gọi là *negative log likelihood* ).
 \\[ J{(w)} = -log( L(w) ) = -\sum_{i=1}^{n}(y^{(i)} log(\alpha^{(i)}) + (1-\alpha^{(i)})log(1-\alpha^{(i)})) \\]
 Vì \\( L(w) \in (0,1) \Rightarrow -log(P{(Y|w)}) > 0 \\)  
 Lúc này ta được \\( J{(w)} \\) làm một hàm lồi nên ta có thể  áp dụng các bài phương pháp tối ưu lồi (*convex optimization* ) để giải quyết bài toán này.   
