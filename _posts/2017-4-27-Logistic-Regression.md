@@ -138,7 +138,7 @@ Trở lại với bài toán ban đầu, ta đã có được 2 phương pháp t
 Ta sẽ giải bài này dùng phương pháp tối ưu Newton's method.  
 Ta có hàm mất mát:
 \\[ J{(w)} = -\sum_{i=1}^{n}(y^{(i)} log(\alpha^{(i)}) + (1-\alpha^{(i)})log(1-\alpha^{(i)})) \\]
-Áp dụng công thức Newton:
+### Áp dụng công thức Newton:
 \\[ w_{t+1} = w_t - \mathbb{H}^{-1} \nabla _ {w} J{(w_t)}\\]
 Ta cần phải tính đạo hàm bậc nhất và bậc 2 của hàm mất mát trước.
 \\[ log \alpha ^{(i)} = log \frac{1}{1+e^{-w^Tx^{(i)}}} = -log(1+e^{-w^Tx^{(i)}}) \\]
@@ -205,7 +205,7 @@ với:
 Tổng quát cho hàm nhiều biến, ta được:
 \\[ {H}_w = \nabla ^ 2 _ w J(w) = {A}^T {B} {A} \\]
 
-## Hiện thực code:  
+Hiện thực code:  
 Ở đây ta hiện thực trên ngôn ngữ [julia](julialang.org). Ngoài ra ta cũng có thể hiện thực trên matlab/octave, python,.. một cách tương tự.  
 Ta chia ngẫu nhiên data thành 2 cặp file.  
 - trx.dat và try.dat chứa điểm của 40 sinh viên và nhãn(đậu/rớt) của sinh viên đó dùng để huấn luyện (train) mô hình.  
@@ -234,8 +234,6 @@ for i in 1:Iter
     # Calculate sigmoid
     h = g(z);
     # Calculate gradient and hession.
-    # The formulas below are equivalent to the summation formulars
-    # Given in the lecture videos.
     grad = (1/m) .* x' * (h-y);
     H = (1/m) .* x' * diagm(vec(h)) * diagm(vec(1-h)) * x;
     # Calculate J for testing convergence
@@ -294,11 +292,20 @@ for i in 21:40
 end
 println(100. *fail/20)
 println(100 *(succ + fail)/40)
+
+# loss graph
+n_loss = 1:Iter
+plot( n_loss, J)
+xlabel("epoch")
+ylabel("loss")
+
 ```
 Kết quả thu được như sau:  
 
 ![LRPlot](/MLDL/assets/img/LRPlot.png)  
 Với đường màu xanh là đồ thị hàm sigmoid, chấm màu xanh là rớt, chấm đỏ là đậu.  
+Đồ thị của hàm mất mát J(w) như sau:  
+![LRPlotLossNT](/MLDL/assets/img/LRPlotLossNT.png)  
 Nếu lấy sinh viên có giá trị y >= 0.5 là đậu và < 0.5 là rớt thì kết quả là dự đoán là:  
 Sinh viên đậu: 100.0 %  
 Sinh viên rớt: 65.0 %  
@@ -306,6 +313,40 @@ Trung bình: 82.5 %
 
 Với tập dữ liệu để huấn luyện (training set) là khá nhỏ (40 sinh viên) thì 82.5% là kết quả chấm nhận được.
 
+### Áp dụng phương pháp Gradient Descent:  
+Đơn giản hơn phương pháp Newton, ở đây ta chỉ tính đạo hàm cấp 1 của hàm mất mát \\( J(w) \\) và thực hiện lặp.  
+Ngoài ra ta cần định nghĩa 1 giá trị alpha là Learning rate của thuật toán.  
+Vì ở đây ta chọn số lần lặp (iteration) là 500000 và learning rate là 0.005  
+Hiện thực code quá trình lặp như sau :   
+```python
+# Set iterations
+Iter = 500000;
+alpha = 0.005;
+J = zeros(Iter, 1);
+# Loop
+for i in 1:Iter
+    # Calculate the hypothesis fucntion
+    z = x*theta;
+    # Calculate sigmoid
+    h = g(z);
+    # Calculate gradient.
+    grad = (1/m) .* x' * (h-y);
+    # Calculate J for testing convergence
+    J[i] = (1/m)*sum(-y .* log(h) - (1-y) .* log(1-h));
+    theta = theta - alpha*grad;
+end
+print(theta)
+```
+Kết quả thu được như sau:  
+![LRPlot](/MLDL/assets/img/LRPlot.png)  
+Đồ thị hàm mất mát:  
+![LRPlotLossNT](/MLDL/assets/img/LRPlotLossNT.png)  
+Nếu lấy sinh viên có giá trị y >= 0.5 là đậu và < 0.5 là rớt thì kết quả là dự đoán là:  
+Sinh viên đậu: 95.0 %  
+Sinh viên rớt: 80.0 %  
+Trung bình: 87.5 %  
+
+<!--  -->
 Code, Notebook và data có thể tải tại [đây.](https://github.com/dukn/MachineLearning)
 
 ## Tài liệu tham khảo  
