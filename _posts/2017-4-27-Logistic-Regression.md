@@ -205,8 +205,103 @@ với:
 Tổng quát cho hàm nhiều biến, ta được:
 \\[ {H}_w = \nabla ^ 2 _ w J(w) = {A}^T {B} {A} \\]
 
+## Hiện thực code:
+Ở đây ta hiện thực trên ngôn ngữ [julia](julialang.org). Ngoài ra ta cũng có thể hiện thực trên matlab/octave, python,.. một cách tương tự.
+Ta chia ngẫu nhiên data thành 2 cặp file.
+- trx.dat và try.dat chứa điểm của 40 sinh viên và nhãn(đậu/rớt) của sinh viên đó dùng để huấn luyện (train) mô hình.
+- tex.dat và tey.dat chứa điểm của 40 sinh viên và nhãn(đậu/rớt) của sinh viên đó dùng để kiểm tra (test) mô hình.
 
+```
+using PyPlot
+x = readdlm("trx.dat");
+y = readdlm("try.dat");
+(m,n) = size(x);
+x = reshape(x, m, n);
+x = [ones(m,1) x];
 
+theta = zeros(n+1,1);
+function g(n)
+    return 1.0 ./(1.0+ exp(-n))
+end
+
+Iter = 10;
+J = zeros(Iter, 1);
+
+# Loop
+for i in 1:Iter
+    # Calculate the hypothesis fucntion
+    z = x*theta;
+    # Calculate sigmoid
+    h = g(z);
+    # Calculate gradient and hession.
+    # The formulas below are equivalent to the summation formulars
+    # Given in the lecture videos.
+    grad = (1/m) .* x' * (h-y);
+    H = (1/m) .* x' * diagm(vec(h)) * diagm(vec(1-h)) * x;
+    # Calculate J for testing convergence
+    J[i] = (1/m)*sum(-y .* log(h) - (1-y) .* log(1-h));
+    theta = theta - H\grad;
+end
+print(theta)
+
+print(J)
+print(size(theta))
+print( size(x))
+
+smx = -10:10
+smy = g(smx)
+plot(smx,smy)
+tex = readdlm("tex.dat");
+tey = readdlm("tey.dat");
+#print(size(x));
+#print(size(y));
+#
+(m,n) = size(tex);
+tex = reshape(tex, m, n);
+# add x_0 (bias)
+tex = [ones(m,1) tex];
+println(size(tex));
+
+smx = -10:10
+smy = g(smx)
+
+#plot(smx,smy)
+
+resx =  tex * theta;
+resy = g(resx);
+
+println(size(resx),size(resy))
+
+plot(resx[1:20],resy[1:20],"r*")
+plot(resx[21:40],resy[21:40],"bo")
+
+succ = 0.
+fail = 0.
+all = 0.
+for i in 1:20
+    if resx[i] >= 0.5
+        succ +=1
+    end
+end
+println(100. *succ/20)
+for i in 21:40
+    if resx[i] <0.5
+        fail +=1
+    end
+end
+println(100. *fail/20)
+println(100 *(succ + fail)/40)
+```
+Kết quả thu được như sau:
+
+![LRPlot](/MLDL/assets/img/LRPlot.png)
+Với đường màu xanh là đồ thị hàm sigmoid, chấm màu xanh là rớt, chấm đỏ là đậu.
+Nếu lấy sinh viên có giá trị y >= 0.5 là đậu và < 0.5 là rớt thì kết quả là dự đoán là:
+Sinh viên đậu: 100.0 %
+Sinh viên rớt: 65.0 %
+Trung bình: 82.5 %
+
+Với tập dữ liệu để huấn luyện (training set) là khá nhỏ (40 sinh viên) thì 82.5% là kết quả chấm nhận được.
 
 <!--    \\[  \\]  \\(  \\)   -->
 <!--                         -->
