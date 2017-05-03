@@ -331,7 +331,7 @@ for i in 1:Iter
     h = g(z);
     # Calculate gradient.
     grad = (1/m) .* x' * (h-y);
-    # Calculate J for testing convergence
+    #' Calculate J for testing convergence
     J[i] = (1/m)*sum(-y .* log(h) - (1-y) .* log(1-h));
     theta = theta - alpha*grad;
 end
@@ -346,7 +346,17 @@ Sinh viên đậu: 95.0 %
 Sinh viên rớt: 80.0 %  
 Trung bình: 87.5 %  
 
+Kết quả ở đây tốt hơn sô với Newton's method một chút.
+
 <!--  -->
+
+Ta thấy được cả Gradient Descent và Newton's method đều có thể dùng để tối ưu hóa bài toán trên. Tuy kết quả Gradient Descent tốt hơn Newton's method một chút nhưng trên thực tế 2 phương pháp này có độ tốt gần như tương đương nhau. Tuy vậy, người ta vẫn dùng Gradient Descent nhiều hơn so với Newton's method vì:
+- Gradient Descent tốn nhiều lần lặp nhưng một lần lặp thời gian thực hiện ngắn hơn.
+- Newton's method tuy ít lặp hơn nhưng mỗi lần lặp cần thời gian nhiều hơn vì phải tính đạo hàm cấp 2.
+- Việc tính đạo hàm là không đơn giản đặc biệt là tính đạo hàm bậc 2 rất phức tạp nên phương pháp Newton ít được lựa chọn.
+Tuy nhiên, nếu số lượng *features* nhỏ ta dùng Newton's method sẽ tốt hơn.  
+Thông thường nếu số lượng *features* n <= 1000 thì nên dùng Newton's method. Nêu n > 1000 thì nên dùng Gradient Descent. Ở đây features có thể xem là số cột của dữ liệu = 2 nên ta dùng Newton's method việc hội tụ diễn ra nhanh hơn.
+
 Code, Notebook và data có thể tải tại [đây.](https://github.com/dukn/MachineLearning)
 
 ## Tài liệu tham khảo  
