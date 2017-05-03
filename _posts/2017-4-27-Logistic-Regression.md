@@ -32,7 +32,7 @@ Với điểm màu đỏ biểu diễn cho sinh viên là đậu và màu xanh l
 
 ## Tìm lời giải.
 
-### Hàm sigmoid
+### Hàm Logistic
 \\[ \sigma{(t)} = \frac{1}{1+e^{-t}} \\]
 
 Hàm này có đồ thị như sau:  
@@ -50,26 +50,31 @@ Ta gọi
 là tập dữ liệu đề cho.  
 Mục tiêu của ta là cho dữ liệu của một sinh viên bất kỳ, dự đoán sinh viên đó đậu hay rớt.   
 \\[  x^{(i)} \Rightarrow  \hat{h}^{(i)} \\]
-Đặt \\( Y^{(i)} \\) là giá trị của \\( y^{(i)} \\) với đầu vào là \\( x^{(i)} \\)
+Đặt \\( Y^{(i)} \\) là giá trị của \\( y^{(i)} \\) với đầu vào là \\( x^{(i)} \\). Ta có \\( Y^{(i)} \\) tuân theo phân phối Bernouli.
 \\[ Y^{(i)} \sim Bernouli(p,n) \\]
  Với:
-\\[  p = P{(y=1|x,w)} = \sigma_{(w^Tx)}  \\]
+\\[  p = P{(y=1|x,w)} = \sigma {(w^Tx)}  \\]
 với \\( w = [w_0, w_1, ..., w_n]^T \\) là tham số cần ước lượng.
-và \\( x = [1, x_1, ..., x_n] \\)
+và \\( x = [1, x_1, ..., x_n] \\)  
 Để thuận tiện trong việc viết, ta đặt \\( \alpha^{(i)} = \sigma (w^Tx^{(i)}) \\)
  \\[ q = P{(y=0|x^{(i)},w)} = 1 - p = 1 - \alpha^{(i)} \\]
-Từ (1) và (2) ta suy ra:
+Từ đó ta suy ra:
 \\[ P{(y^{(i)}|x^{(i)},w)} = (\alpha^{(i)})^{y^{(i)}}(1-\alpha^{(i)})^{1-y^{(i)}} \\]
-Xét trên toàn bộ tập dữ liệu D
-\\[ P(Y|W) = \prod_{i=1}^{n}(\alpha^{(i)})^{y^{(i)}}(1-\alpha^{(i)})^{1-y^{(i)}}   \\]
-Tìm mô hình phù hợp để  \\(P\\) lớn nhất.
+Tức là khi \\( y^{(i)} = 1 \\) vế phải còn lại \\( \alpha^{(i)}) \\) và khi \\( y^{(i)} = 0 \\) vế phải còn lại \\( 1 - \alpha^{(i)}) \\). Ta muốn mô hình này tốt nhât tức là xác suất này phải lớn nhất.  
+Xét trên toàn bộ tập dữ liệu D. Ta có thể viết lại likelihood của parameters là:
+\\[ \begin{eqnarray} L(W) &=& P( \vec{y} | X,W )
+&=& \prod_{i=1}^{n} P{(y^{(i)}|x^{(i)},w)}
+&=& \prod_{i=1}^{n}(\alpha^{(i)})^{y^{(i)}}(1-\alpha^{(i)})^{1-y^{(i)}}   
+\end{eqnarray}
+\\]
+Mục tiêu của ta là maximize giá trị \\( L(w) \\) trên.
 ### negative log likelihood.
 Với hàm số trên, việc tối ưu là rất khó vì khi số \\(n\\) lớn thì
 giá trị của \\(P{(y^{(i)}|x^{(i)},w)}\\) sẽ rât nhỏ.
-Ta sẽ lầy logarit cơ số e của \\(P{(y^{(i)}|x^{(i)},w)}\\) ( thường được gọi là *hàm likelihood* ). Sau đó lấy ngược dấu để  được một hàm số mới có giá trị lớn hơn và là một hàm lồi (convex function). Lúc này bài toán ta trở thành tìm giá trị nhỏ nhất của hàm mất mát (hàm này thường được gọi là *negative log likelihood* ).
-\\[ J{(w)} = -log(P{(Y|w)}) = -\sum_{i=1}^{n}(y^{(i)} log(\alpha^{(i)}) + (1-\alpha^{(i)})log(1-\alpha^{(i)})) \\]
-Vì \\( P{(Y|w)} \in (0,1) \Rightarrow -log(P{(Y|w)}) > 0 \\)  
-Lúc này ta được \\( J{(w)} \\) làm một hàm lồi nên ta có thể  áp dụng các bài phương pháp tối    ưu lồi (*convex optimization* ) để giải quyết bài toán này.   
+Ta sẽ lầy logarit cơ số e của \\( L(w) }\\). Sau đó lấy ngược dấu để  được một hàm số mới có giá trị lớn hơn và là một hàm lồi (convex function). Lúc này bài toán ta trở thành tìm giá trị nhỏ nhất của hàm mất mát (hàm này thường được gọi là *negative log likelihood* ).
+\\[ J{(w)} = -log( L(w) ) = -\sum_{i=1}^{n}(y^{(i)} log(\alpha^{(i)}) + (1-\alpha^{(i)})log(1-\alpha^{(i)})) \\]
+Vì \\( L(w) \in (0,1) \Rightarrow -log(P{(Y|w)}) > 0 \\)  
+Lúc này ta được \\( J{(w)} \\) làm một hàm lồi nên ta có thể  áp dụng các bài phương pháp tối ưu lồi (*convex optimization* ) để giải quyết bài toán này.   
 
 ## Gradient Descent method
 
@@ -208,8 +213,8 @@ Tổng quát cho hàm nhiều biến, ta được:
 Hiện thực code:  
 Ở đây ta hiện thực trên ngôn ngữ [julia](julialang.org). Ngoài ra ta cũng có thể hiện thực trên matlab/octave, python,.. một cách tương tự.  
 Ta chia ngẫu nhiên data thành 2 cặp file.  
-- trx.dat và try.dat chứa điểm của 40 sinh viên và nhãn(đậu/rớt) của sinh viên đó dùng để huấn luyện (train) mô hình.  
-- tex.dat và tey.dat chứa điểm của 40 sinh viên và nhãn(đậu/rớt) của sinh viên đó dùng để kiểm tra (test) mô hình.  
+- `trx.dat` và `try.dat` chứa điểm của 40 sinh viên và nhãn(đậu/rớt) của sinh viên đó dùng để huấn luyện (train) mô hình.  
+- `tex.dat` và `tey.dat` chứa điểm của 40 sinh viên và nhãn(đậu/rớt) của sinh viên đó dùng để kiểm tra (test) mô hình.  
 
 ```python
 using PyPlot
@@ -316,7 +321,7 @@ Với tập dữ liệu để huấn luyện (training set) là khá nhỏ (40 s
 ### Áp dụng phương pháp Gradient Descent:  
 Đơn giản hơn phương pháp Newton, ở đây ta chỉ tính đạo hàm cấp 1 của hàm mất mát \\( J(w) \\) và thực hiện lặp.  
 Ngoài ra ta cần định nghĩa 1 giá trị alpha là Learning rate của thuật toán.  
-Vì ở đây ta chọn số lần lặp (iteration) là 500000 và learning rate là 0.005  
+Ở đây ta chọn số lần lặp (iteration) là 500000 và learning rate là 0.005  
 Hiện thực code quá trình lặp như sau :   
 ```python
 # Set iterations
@@ -361,8 +366,8 @@ Code, Notebook và data có thể tải tại [đây.](https://github.com/dukn/M
 
 ## Tài liệu tham khảo  
 
-1. [Stanford CS229 Lecture Notes (Notes 1)](https://cs229.stanford.edu/notes/cs229-notes1.pdf)
-2. [Machine Learning Cơ bản](https://machinelearningcoban.com)
+1. [Stanford CS229 Lecture Notes (Notes 1)](http://cs229.stanford.edu/notes/cs229-notes1.pdf)
+2. [Machine Learning Cơ bản](http://machinelearningcoban.com)
 
 
 <!--    \\[  \\]  \\(  \\)   -->
