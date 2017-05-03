@@ -330,7 +330,7 @@ for i in 1:Iter
     # Calculate sigmoid
     h = g(z);
     # Calculate gradient.
-    grad = (1/m) .* x' * (h-y); #' comment 
+    grad = (1/m) .* x' * (h-y); #' comment
     # Calculate J for testing convergence
     J[i] = (1/m)*sum(-y .* log(h) - (1-y) .* log(1-h));
     theta = theta - alpha*grad;
@@ -361,8 +361,8 @@ Code, Notebook và data có thể tải tại [đây.](https://github.com/dukn/M
 
 ## Tài liệu tham khảo  
 
-1. [Stanford CS229 Lecture Notes (Notes 1)](cs229.stanford.edu/notes/cs229-notes1.pdf)
-2. [Machine Learning Cơ bản](machinelearningcoban.com)
+1. [Stanford CS229 Lecture Notes (Notes 1)](https://cs229.stanford.edu/notes/cs229-notes1.pdf)
+2. [Machine Learning Cơ bản](https://machinelearningcoban.com)
 
 
 <!--    \\[  \\]  \\(  \\)   -->
