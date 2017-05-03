@@ -205,13 +205,13 @@ với:
 Tổng quát cho hàm nhiều biến, ta được:
 \\[ {H}_w = \nabla ^ 2 _ w J(w) = {A}^T {B} {A} \\]
 
-## Hiện thực code:
-Ở đây ta hiện thực trên ngôn ngữ [julia](julialang.org). Ngoài ra ta cũng có thể hiện thực trên matlab/octave, python,.. một cách tương tự.
-Ta chia ngẫu nhiên data thành 2 cặp file.
-- trx.dat và try.dat chứa điểm của 40 sinh viên và nhãn(đậu/rớt) của sinh viên đó dùng để huấn luyện (train) mô hình.
-- tex.dat và tey.dat chứa điểm của 40 sinh viên và nhãn(đậu/rớt) của sinh viên đó dùng để kiểm tra (test) mô hình.
+## Hiện thực code:  
+Ở đây ta hiện thực trên ngôn ngữ [julia](julialang.org). Ngoài ra ta cũng có thể hiện thực trên matlab/octave, python,.. một cách tương tự.  
+Ta chia ngẫu nhiên data thành 2 cặp file.  
+- trx.dat và try.dat chứa điểm của 40 sinh viên và nhãn(đậu/rớt) của sinh viên đó dùng để huấn luyện (train) mô hình.  
+- tex.dat và tey.dat chứa điểm của 40 sinh viên và nhãn(đậu/rớt) của sinh viên đó dùng để kiểm tra (test) mô hình.  
 
-```
+```python
 using PyPlot
 x = readdlm("trx.dat");
 y = readdlm("try.dat");
@@ -248,9 +248,7 @@ print(J)
 print(size(theta))
 print( size(x))
 
-smx = -10:10
-smy = g(smx)
-plot(smx,smy)
+
 tex = readdlm("tex.dat");
 tey = readdlm("tey.dat");
 #print(size(x));
@@ -264,6 +262,7 @@ println(size(tex));
 
 smx = -10:10
 smy = g(smx)
+plot(smx,smy)
 
 #plot(smx,smy)
 
@@ -274,6 +273,10 @@ println(size(resx),size(resy))
 
 plot(resx[1:20],resy[1:20],"r*")
 plot(resx[21:40],resy[21:40],"bo")
+
+clx = -10:10
+cly = 0.5+0.0 *clx
+plot(clx,cly)
 
 succ = 0.
 fail = 0.
@@ -292,16 +295,23 @@ end
 println(100. *fail/20)
 println(100 *(succ + fail)/40)
 ```
-Kết quả thu được như sau:
+Kết quả thu được như sau:  
 
-![LRPlot](/MLDL/assets/img/LRPlot.png)
-Với đường màu xanh là đồ thị hàm sigmoid, chấm màu xanh là rớt, chấm đỏ là đậu.
-Nếu lấy sinh viên có giá trị y >= 0.5 là đậu và < 0.5 là rớt thì kết quả là dự đoán là:
-Sinh viên đậu: 100.0 %
-Sinh viên rớt: 65.0 %
-Trung bình: 82.5 %
+![LRPlot](/MLDL/assets/img/LRPlot.png)  
+Với đường màu xanh là đồ thị hàm sigmoid, chấm màu xanh là rớt, chấm đỏ là đậu.  
+Nếu lấy sinh viên có giá trị y >= 0.5 là đậu và < 0.5 là rớt thì kết quả là dự đoán là:  
+Sinh viên đậu: 100.0 %  
+Sinh viên rớt: 65.0 %  
+Trung bình: 82.5 %  
 
 Với tập dữ liệu để huấn luyện (training set) là khá nhỏ (40 sinh viên) thì 82.5% là kết quả chấm nhận được.
+
+
+## Tài liệu tham khảo  
+
+1. [Stanford CS229 Lecture Notes (Notes 1)](cs229.stanford.edu/notes/cs229-notes1.pdf)
+2. [Machine Learning Cơ bản](machinelearningcoban.com)
+
 
 <!--    \\[  \\]  \\(  \\)   -->
 <!--                         -->
