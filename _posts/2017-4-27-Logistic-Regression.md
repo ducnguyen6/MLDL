@@ -46,7 +46,7 @@ Hàm này có đồ thị như sau:
 ### Tìm hàm mất mát ( *loss function* )
 
 Ta gọi   
-\\( D = {(x^{(1)},y^{(1)}),(x^{(2)},y^{(2)}),...,(x^{(n)},y^{(n)})}, \forall x^{(i)} \in \mathbb{R}^d , y^{(i)} \in {0,1} \\)   
+\\( D = {(x^{(1)},y^{(1)}),(x^{(2)},y^{(2)}),...,(x^{(n)},y^{(n)})}, \forall x^{(i)} \in \mathbb{R}^d , y^{(i)} \in \\{0,1\\} \\)   
 là tập dữ liệu đề cho.  
 Mục tiêu của ta là cho dữ liệu của một sinh viên bất kỳ, dự đoán sinh viên đó đậu hay rớt.   
 \\[  x^{(i)} \Rightarrow  \hat{h}^{(i)} \\]
@@ -93,7 +93,7 @@ Vậy muốn đến được \\(x\*\\) ta cần di chuyển \\(x_t\\) về phía
 Một cách tổng quát, ta cần cộng cho \\(x_t\\) một lượng \\( \Delta \\)ngược dấu với đạo hàm:
 \\[ x_{t+1} = x_t + \Delta \\]   
 
-Nếu \\(x_t\\) càng xa \\(x\*\\) thì f'_ {x_t} càng lớn nến lượng \\( \Delta \\) sẽ tỉ lệ với đạo hàm.   
+Nếu \\(x_t\\) càng xa \\(x\*\\) thì \\( f'_ {x_t} \\) càng lớn nên lượng \\( \Delta \\) sẽ tỉ lệ với đạo hàm.   
 Từ đó ta suy ra được: \\[ x_{t+1} = x_t - \alpha f'_ {x_t} \\]
 Với \\( \alpha > 0 \\) gọi là learning rate.
 
