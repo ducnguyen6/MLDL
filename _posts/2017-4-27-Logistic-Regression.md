@@ -47,15 +47,15 @@ Hàm này có đồ thị như sau:
 
 Ta gọi   
 \\( D = {(x^{(1)},y^{(1)}),(x^{(2)},y^{(2)}),...,(x^{(n)},y^{(n)})}, \forall x^{(i)} \in \mathbb{R}^d , y^{(i)} \in \\{0,1\\} \\)   
-là tập dữ liệu đề cho.  
+là tập dữ liệu đề cho với n là số lượng điểm dữ liệu.  
 Mục tiêu của ta là cho dữ liệu của một sinh viên bất kỳ, dự đoán sinh viên đó đậu hay rớt.   
 \\[  x^{(i)} \Rightarrow  \hat{h}^{(i)} \\]
 Đặt \\( Y^{(i)} \\) là giá trị của \\( y^{(i)} \\) với đầu vào là \\( x^{(i)} \\). Ta có \\( Y^{(i)} \\) tuân theo phân phối Bernouli.
 \\[ Y^{(i)} \sim Bernouli(p,n) \\]
  Với:
 \\[  p = P{(y=1|x,w)} = \sigma {(w^Tx)}  \\]
-với \\( w = [w_0, w_1, ..., w_n]^T \\) là tham số cần ước lượng.
-và \\( x = [1, x_1, ..., x_n] \\)  
+với \\( w = [w_0, w_1, ..., w_d]^T \\) là tham số cần ước lượng.
+và \\( x = [1, x_1, ..., x_d] \\)  
 Để thuận tiện trong việc viết, ta đặt \\( \alpha^{(i)} = \sigma (w^Tx^{(i)}) \\)
  \\[ q = P{(y=0|x^{(i)},w)} = 1 - p = 1 - \alpha^{(i)} \\]
 Từ đó ta suy ra:
