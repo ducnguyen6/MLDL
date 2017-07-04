@@ -15,16 +15,6 @@ kramdown:
   auto_ids: true
   syntax_highlighter: rouge
 
-#markdown: redcarpet
-#redcarpet:
-#  extensions:
-#    - hard_wrap
-#    - no_intra_emphasis
-#    - autolink
-#    - strikethrough
-#    - tables
-#    - lax_spacing
-#    - with_toc_data
 
 #### Default Attributes
 defaults:
@@ -89,7 +79,7 @@ banner_img: img/banner.jpg ## size:1920px*200px+. Banner Picture
 #### index post is expanding or not
 mathjax: true      #enable mathjax if true
 index:
-  expand: false           ## default is unexpanding,so you can only see the short description of each post.
+  expand: true           ## default is unexpanding,so you can only see the short description of each post.
   excerpt_link: Read More
   mathjax: true
 
