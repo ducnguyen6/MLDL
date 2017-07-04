@@ -71,15 +71,11 @@ widgets:
 - category
 - tag
 - tagcloud
-- links
-- douban
-- github-card
-- rss
 ## provide seven widgets:github-card,category,tag,rss,archive,tagcloud,links,weibo,douban
 
 
 #### RSS
-rss: /atom.xml ## RSS address.
+# rss: /atom.xml ## RSS address.
 
 #### Image
 imglogo:
@@ -91,9 +87,11 @@ author_img: img/author.jpg ## size:220px*220px.display author avatar picture.if 
 banner_img: img/banner.jpg ## size:1920px*200px+. Banner Picture
 
 #### index post is expanding or not
+mathjax: true      #enable mathjax if true
 index:
-  expand: true           ## default is unexpanding,so you can only see the short description of each post.
+  expand: false           ## default is unexpanding,so you can only see the short description of each post.
   excerpt_link: Read More
+  mathjax: true
 
 close_aside: false  #close sidebar in post page if true
 mathjax: true      #enable mathjax if true
