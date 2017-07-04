@@ -72,7 +72,7 @@ Mục tiêu của ta là maximize giá trị \\( L(w) \\) trên.
 Với hàm số trên, việc tối ưu là rất khó vì khi số \\(n\\) lớn thì
 giá trị của \\(P{(y^{(i)}|x^{(i)},w)}\\) sẽ rât nhỏ.
 Ta sẽ lầy logarit cơ số e của \\( L(w) \\). Sau đó lấy ngược dấu để  được một hàm số mới có giá trị lớn hơn và là một hàm lồi (convex function). Lúc này bài toán ta trở thành tìm giá trị nhỏ nhất của hàm mất mát (hàm này thường được gọi là *negative log likelihood* ).
-\\[ J{(w)} = -log( L(w) ) = -\sum_{i=1}^{n}(y^{(i)} log(\alpha^{(i)}) + (1-\alpha^{(i)})log(1-\alpha^{(i)})) \\]
+\\[ J{(w)} = -log( L(w) ) = -\sum_{i=1}^{n}(y^{(i)} log(\alpha^{(i)}) + (1-y^{(i)})log(1-\alpha^{(i)})) \\]
 Vì \\( L(w) \in (0,1) \Rightarrow -log(P{(Y|w)}) > 0 \\)  
 Lúc này ta được \\( J{(w)} \\) làm một hàm lồi nên ta có thể  áp dụng các bài phương pháp tối ưu lồi (*convex optimization* ) để giải quyết bài toán này.   
 
@@ -142,7 +142,7 @@ Vậy với hàm bậc 2 một biến thì chỉ sau 1 lần lặp ta đã tìm 
 Trở lại với bài toán ban đầu, ta đã có được 2 phương pháp tối ưu hàm mất mát \\( J \\).
 Ta sẽ giải bài này dùng phương pháp tối ưu Newton's method.  
 Ta có hàm mất mát:
-\\[ J{(w)} = -\sum_{i=1}^{n}(y^{(i)} log(\alpha^{(i)}) + (1-\alpha^{(i)})log(1-\alpha^{(i)})) \\]
+\\[ J{(w)} = -\sum_{i=1}^{n}(y^{(i)} log(\alpha^{(i)}) + (1-y^{(i)})log(1-\alpha^{(i)})) \\]
 ### Áp dụng công thức Newton:
 \\[ w_{t+1} = w_t - \mathbb{H}^{-1} \nabla _ {w} J{(w_t)}\\]
 Ta cần phải tính đạo hàm bậc nhất và bậc 2 của hàm mất mát trước.
