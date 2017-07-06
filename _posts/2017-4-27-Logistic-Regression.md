@@ -54,8 +54,8 @@ Mục tiêu của ta là cho dữ liệu của một sinh viên bất kỳ, dự
 \\[ Y^{(i)} \sim Bernouli(p,n) \\]
  Với:
 \\[  p = P{(y=1|x,w)} = \sigma {(w^Tx)}  \\]
-với \\( w = [w_0, w_1, ..., w_d]^T \\) là tham số cần ước lượng.
-và \\( x^{(i)} = [1, x^{(i)} _{1}, ..., x^{(i)}_{d} ]^T \\)  
+với \\( w = [w_0, w_1, ..., w_d]^T \\) là tham số cần ước lượng
+và \\( x^{(i)} = [1, x ^{(i)} _ {1}, ..., x ^{(i)} _ {d} ]^T \\)  
 Để thuận tiện trong việc viết, ta đặt \\( \alpha^{(i)} = \sigma (w^Tx^{(i)}) \\)
  \\[ q = P{(y=0|x^{(i)},w)} = 1 - p = 1 - \alpha^{(i)} \\]
 Từ đó ta suy ra:
