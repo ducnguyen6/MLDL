@@ -29,8 +29,8 @@ defaults:
 paginate: 20
 
 #### Site
-title : Duc's Blog
-tagline: Have a nice day!
+title : AI and Data Science 
+tagline: Keep learning!
 assets: /MLDL/assets
 baseurl: '/MLDL'
 
@@ -70,11 +70,11 @@ widgets:
 #### Image
 imglogo:
   enable: true             ## display image logo true/false.
-  src: img/logoduc.png        ## `.svg` and `.png` are recommended,please put image into the theme folder `/jacman/source/img`.
-favicon: img/logoduc.ico   ## size:32px*32px,`.ico` is recommended,please put image into the theme folder `/jacman/source/img`.
-apple_icon: img/logoduc.png    ## size:114px*114px,please put image into the theme folder `/jacman/source/img`.
-author_img: img/author.jpg ## size:220px*220px.display author avatar picture.if don't want to display,please don't set this.
-banner_img: img/banner.jpg ## size:1920px*200px+. Banner Picture
+  src: img/ico3.svg
+favicon: img/ico3.svg
+apple_icon: img/ico3.ico 
+author_img: # img/author.jpg ## size:220px*220px.display author avatar picture.if don't want to display,please don't set this.
+banner_img: img/banner2.jpg ## size:1920px*200px+. Banner Picture
 
 #### index post is expanding or not
 mathjax: true      #enable mathjax if true
@@ -89,15 +89,15 @@ share_button: true #enable share buttons if true
 
 #### Author information
 author:
-  name: DucNguyen      ## e.g. wuchong Author name
-  intro_line1:  "Hello ,I'm Duc in BKU."    ## your introduction on the bottom of the page
-  intro_line2:  "Keep learning!"  ## the 2nd line
+  name: Duc Nguyen      ## e.g. wuchong Author name
+  intro_line1:  "Hello ,I'm DucNguyen"    ## your introduction on the bottom of the page
+  intro_line2:  "Data Scientist, Machine Learning Engineer"  ## the 2nd line
   weibo:      ## e.g. wuchong1014 or 2176287895 for http://weibo.com/2176287895
   weibo_verifier:  ## e.g. b3593ceb Your weibo-show widget verifier ,if you use weibo-show it is needed.
   tsina:      ## e.g. 2176287895  Your weibo ID,It will be used in share button.
   douban:     ## e.g. wuchong1014 or your id for https://www.douban.com/people/wuchong1014
   zhihu:      ## e.g. jark  for http://www.zhihu.com/people/jark
-  email:      nguyentanduc96@gmail.com ## e.g. imjark@gmail.com
+  email:      # nguyentanduc96@gmail.com ## e.g. imjark@gmail.com
   twitter:    ## e.g. jarkwu for https://twitter.com/jarkwu
   github:     https://github.com/dukn ## e.g. wuchong for https://github.com/wuchong
   facebook:   ## e.g. imjark for https://facebook.com/imjark
@@ -164,5 +164,5 @@ tinysou_search:     ## http://tinysou.com/
   enable: false
   id:  ## e.g. "4ac092ad8d749fdc6293" for your tiny search id
 
-gems:
+plugins:
  - jemoji
