@@ -90,3 +90,31 @@ Nói cách khác, vector attention là một dạng "tổng hợp thông tin" t�
 
 
 #### Multi-Head Attention
+Thêm nhiều lớp Scaled Dot-Product Attention song song nhau với kỳ vọng mỗi lớp sẽ học được các thông tin attention khác nhau. Output sẽ được tổng hợp lại theo dạng concat.
+\\[MultiHead(Q, K, V) = Concat(head_1, ..., head_h) * W^O \\]
+
+![Multi-Head Attention](/MLDL/assets/img/transformer_3.png)
+
+Multi-Head Attention giúp mô hình học được các biểu diễn phong phú hơn và cải thiện hiệu suất trên nhiều tác vụ NLP.
+
+### Position-wise Feed-Forward Networks
+
+Output của lớp Multi-Head Attention sẽ được tiếp tục đưa qua các mô hình Feed-Forward, ở paper cụ thể là các fully connected layers.
+Lớp này cho phép mô hình học thêm nhiều thông tin và biểu diễn phức tạp hơn so với các thông tin ở đầu ra của Multi-Head Attention, 
+
+### Positional Encoding
+
+Trong kiến trúc Transformer, mặc dù mô hình đã có thể tự học được các tính liên quan và mối quan hệ giữa các từ trong câu (đối với bài toán xử lý ngôn ngữ). Các thông tin chính xác về vị trí của từ trong câu cũng giúp mô hình có thêm thông tin cho các task cần thông tin vị trí như Named Entity Recognition - NER.
+
+Trong paper, tác giả sử dụng 2 hàm sin và cos khác tần số để biểu diễn vị trí của từ trong câu.
+
+## References
+Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A. N., ... & Polosukhin, I. (2017). Attention is all you need. In Advances in neural information processing systems (pp. 5998-6008).
+
+Devlin, J., Chang, M. W., Lee, K., & Toutanova, K. (2018). BERT: Pre-training of deep bidirectional transformers for language understanding. arXiv preprint arXiv:1810.04805.
+
+Bahdanau, D., Cho, K., & Bengio, Y. (2014). Neural machine translation by jointly learning to align and translate. arXiv preprint arXiv:1409.0473.
+
+Alammar, J. (n.d.). The Illustrated Transformer. Retrieved from http://jalammar.github.io/illustrated-transformer/
+
+The Annotated Transformer. (2018). Harvard NLP. Retrieved from http://nlp.seas.harvard.edu/2018/04/03/attention.html
