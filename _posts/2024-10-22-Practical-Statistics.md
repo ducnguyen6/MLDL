@@ -52,6 +52,35 @@ Các đặc tính thay đổi của dữ liệu thường có là:
 - Standard Deviation: Độ lệch chuẩn được tính bằng căn bậc 2 của phương sai, độ lệch chuẩn dùng để đo mức độ phân tán của một tập hợp dữ liệu so với giá trị trung bình của nó. Nói cách khác, độ lệch chuẩn cho biết các số liệu trong tập dữ liệu có phân bố gần nhau hay xa nhau.Cũng gần giống như MAD, phương sai được dùng nhiều hơn trong thống kê.
 - Percentile: còn gọi là bách phân vị, dùng để chỉ vị trí tương đối của một giá trị so với các giá trị còn lại trong một tập dữ liệu. Nói cách khác, percentile cho biết có bao nhiêu phần trăm dữ liệu có giá trị nhỏ hơn hoặc bằng giá trị đang xét. Median sẽ là Percentile 50 (50% dữ liệu có giá trị nhỏ hơn nó). Quartile hay tứ phân vị là một loại Percentile phổ biến thường được dùng, chỉ dữ liệu ở các mốc 25%, 50% và 75%.
 
+###  Data Distribution
+
+**Boxp lot**
+
+![Box plot](/MLDL/assets/img/boxplot.png)
+
+Boxplot là một cách biểu diễn phân bố dư liệu đơn giản nhưng rất hiệu quá dựa trên phân vị.
+
+Box là một hình chữ nhật thể 2 mốc phân vị Q75 và Q25. Trung tâm hình chữ nhật có đánh dấu vị trí trung vị (median) hay Q50.
+
+Có 2 râu tại maximun và minimun là 2 giá trị được xem là giới hạn của các dữ liệu bình thường. Các điểm dữ liệu nằm ngoài 2 điểm này được xem là outliers.
+
+Cách tính 2 râu này có nhiều cách, có thể là Q5 và Q95, hoặc có thể tính bằng khoảng cách từ nó đến Q25 và Q75 là 1.5*IQR, với IQR (interquartile range) là khoảng cách từ Q75 - Q25 (chiều dài của hình chữ nhật).
+
+Boxplot thể hiện được mức độ phân bố của dữ liệu, độ lệch của phân bố và giới hạn outliers.
+
+**Histogram**
+
+![Histogram plot](/MLDL/assets/img/histplot.png)
+
+Histogram là một cách biểu diển cổ điển của phân bố dữ liệu, giá trị của dữ liệu được thể hiện bằng các cột rời rạc, với chiều cao của các cột thể hiện số lượng của các điểm dữ liệu có giá trị bằng giá trị cột đó đại diện.
+
+**Density plot**
+
+![Density plot](/MLDL/assets/img/displot.png)
+
+Density plot hay distribution plot là cách biểu diễn tương tự với Histogram, tuy nhiên density plot vẽ các đường cong thể hiện mực độ phân bố của dữ liệu thay vì biển diển bằng các cột rời rạc. Trong hình mô tả, đường cong được đè lên trên histogram là density plot của phân bố.
+
+### Khám phá Binary và Categorical Data
 
 
 
