@@ -82,9 +82,30 @@ Density plot hay distribution plot là cách biểu diễn tương tự với Hi
 
 ### Khám phá Binary và Categorical Data
 
+Đối với dữ liệu Binary và Categorical, chỉ số thống kê cơ bản Mode, thể hiện giá trị nào có số lượng phổ biến nhất trong tập dữ liệu.
 
+Các loại biểu đồ thường được sử dụng để biểu diễn phân bố của Binary và Categorical Data là *Bar charts*, *Pie charts*.
+
+### Correlation
+
+**Correlation coefficient**
+Hệ số tương quan (Correlation coefficient) là thước đo thống kê cho biết mức độ liên hệ tuyến tính giữa 2 biến số. Dựa vào chỉ số này có thể xem 2 biến có xu hướng thay đổi cùng chiều hay ngược chiều, mức độ thay đổi mạnh hay yếu.
+
+Có các loại hệ số phổ biến:
+- Pearson: 
+- Spearman:
+- Kendall:
+
+**Correlation matrix**
+
+**Scatterplot**
+
+
+### Exploring Two or More Variables
 
 ## Data and Sampling Distributions
+
+### Random Sampling and Sample Bias
 
 
 ## Statistical Experiments and Significance Testing
