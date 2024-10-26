@@ -91,15 +91,20 @@ Các loại biểu đồ thường được sử dụng để biểu diễn phâ
 **Correlation coefficient**
 Hệ số tương quan (Correlation coefficient) là thước đo thống kê cho biết mức độ liên hệ tuyến tính giữa 2 biến số. Dựa vào chỉ số này có thể xem 2 biến có xu hướng thay đổi cùng chiều hay ngược chiều, mức độ thay đổi mạnh hay yếu.
 
-Có các loại hệ số phổ biến:
-- Pearson: 
-- Spearman:
-- Kendall:
+Có các loại phương pháp tính hệ số phổ biến:
+- **Pearson**: đo lượng mức độ **tuyến tính** của 2 biến số. Phương pháp này có giả định dữ liệu tuân theo phân phối chuẩn và nhạy cảm với outliers.
+- **Spearman**: đo lường mức độ **đồng điệu (Monotonic)** của 2 biến số, phương pháp này không giả định về phân phối phải chuẩn và ít nhạy cảm với outliers.
+- **Kendall**: đo lường mức độ **tương đồng (Concordance)** của 2 biến, phương pháp này cũng không giả định về phân phối phải là chuẩn, và ít nhạy cảm với outliers hơn cả 2 phương pháp trước.
 
 **Correlation matrix**
 
+Một bảng với các biến được hiển thị trên cả hàng và cột, và giá trị ô là mối tương quan giữa các biến. _Correlation matrix_ được sử dụng để xem tổng quan về mức độ tương đồ của các biến hoặc feature của dữ liệu trong bước EDA.
+
 **Scatterplot**
 
+![Scatterplot](/MLDL/assets/img/scatterplot.png)
+
+Scatterplot là cách hiển thị đơn giản để thể hiện mức đọ tương đồng của 2 biến. Việc hiển thị có thể giúp người xem hình dung về mức độ tương qua và loại tương quan của 2 biến.
 
 ### Exploring Two or More Variables
 
