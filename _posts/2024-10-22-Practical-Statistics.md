@@ -108,7 +108,11 @@ Scatterplot là cách hiển thị đơn giản để thể hiện mức đọ t
 
 ### Exploring Two or More Variables
 
+Tương tự với phân tích đơn biến (univariate analysis), phân tích 2 biến (bivariate analysis) và đa biến (multivariate analysis) cũng quan trọng, các biến thường được hiển thị (visualize) cùng nhau trên 1 đồ thị, biểu diễn tương quan bằng Contour plots hoặc Violin plots.
+
 ## Data and Sampling Distributions
+
+Lấy mẫu có nhiều ý nghĩa trong phân tích và tính toán dữ liệu, không chỉ làm nhỏ hơn để tính nhanh hơn mà còn giúp loại bỏ các yếu tố không tốt của dữ liệu như mất cân bằng trong dữ liệu. Chương này, ta sẽ cùng tìm hiểu về việc lấy mẫu dữ liệu.
 
 ### Random Sampling and Sample Bias
 
