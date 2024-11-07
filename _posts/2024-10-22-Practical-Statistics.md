@@ -181,6 +181,9 @@ Bootstrap là một phương pháp mạnh mẽ và có thể áp dụng trong nh
 - Khi các giả định trong mô hình không thỏa mãn
 - Kiểm định giả thuyết (Hypothesis testing)
 
+### Confidence Intervals
+
+
 
 ## Statistical Experiments and Significance Testing
 
